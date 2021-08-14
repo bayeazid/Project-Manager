@@ -4,7 +4,13 @@ use App\Http\Controllers\backend\SupervisorController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\frontend\login;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\backend\ProjectController;
+use App\Http\Controllers\pages\ResourcesController;
+use App\Http\Controllers\pages\HomeController;
+use App\Http\Controllers\pages\ProjectsController;
+
+use App\Http\Controllers\pages\NotificationController;
+use App\Http\Controllers\pages\TasksController;
+use App\Http\Controllers\pages\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +26,11 @@ use App\Http\Controllers\backend\ProjectController;
 Route::get('/supervisor',[SupervisorController::class,'supervisor']);
 Route::get('/user',[UserController::class,'user']);
 Route::get('/',[login::class,'login']); 
-Route::get('/supervisor/projects',[projets_controller::class,'projects']);
 
-Route::get('/supervisor/task',[projets_controller::class,'task']);
-Route::get('/supervisor/users',[projets_controller::class,'users']);
-Route::get('/supervisor/notification',[projets_controller::class,'notification']);
+Route::get('/supervisor/home',[HomeController::class,'home'])->name('home');
+Route::get('/supervisor/resourses',[ResourcesController::class,'resource'])->name('resource');
+Route::get('/supervisor/projects',[ProjectsController::class,'projects'])->name('projects');
+Route::get('/supervisor/tasks',[TasksController::class,'tasks'])->name('tasks');
 
-
-
-Route::get('/supervisor/resourses',[ProjectController::class,'resource'])->name('super.resource');
+Route::get('/supervisor/notification',[NotificationController::class,'notification'])->name('notification');
+Route::get('/supervisor/users',[UsersController::class,'users'])->name('users');
