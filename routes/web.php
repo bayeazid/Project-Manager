@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pages\ResourcesController;
 use App\Http\Controllers\pages\HomeController;
 use App\Http\Controllers\pages\ProjectsController;
-
 use App\Http\Controllers\pages\NotificationController;
 use App\Http\Controllers\pages\TasksController;
 use App\Http\Controllers\pages\UsersController;
+use App\Http\Controllers\pages\AssetsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +34,5 @@ Route::get('/supervisor/tasks',[TasksController::class,'tasks'])->name('tasks');
 
 Route::get('/supervisor/notification',[NotificationController::class,'notification'])->name('notification');
 Route::get('/supervisor/users',[UsersController::class,'users'])->name('users');
+
+Route::get('/supervisor/assets',[AssetsController::class,'assets'])->name('assets');

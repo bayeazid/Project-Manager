@@ -34,6 +34,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="assets">
+              <span data-feather="users"></span>
+              Asset Library 
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{ route('notification') }}">
               <span data-feather="layers"></span>
               Notification

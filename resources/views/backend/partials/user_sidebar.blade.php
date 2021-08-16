@@ -9,16 +9,13 @@
               Home
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              Projects
-            </a>
-          </li>
+          
+
+
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="shopping-cart"></span>
-              Project Resources
+              Project Files
             </a>
           </li>
           <li class="nav-item">
@@ -27,12 +24,14 @@
               Tasks
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Users
+              <span data-feather="users"></span>
+              Asset Library 
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="layers"></span>

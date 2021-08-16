@@ -1,5 +1,10 @@
 @extends('backend.partials.supervisor_master')
 
 @section('content')
-<h1>home.blade</h1>
+
+<h1>
+<p class="text-center" style="padding-top: 250px;">   
+home page</p>    
+</h1>
+
 @endsection
