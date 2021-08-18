@@ -4,45 +4,39 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ route('home') }}">
+            <a class="nav-link active" aria-current="page" href="{{ route('admin_home') }}">
               <span data-feather="home"></span>
               Home
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('projects') }}">
+            <a class="nav-link" href="{{ route('admin_files') }}">
               <span data-feather="file"></span>
               Projects
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('resource') }}">
-              <span data-feather="shopping-cart"></span>
-              Resources
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('tasks') }}">
+            <a class="nav-link" href="{{ route('admin_tasks') }}">
               <span data-feather="users"></span>
               Tasks
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('users') }}">
+            <a class="nav-link" href="{{ route('admin_users') }}">
               <span data-feather="bar-chart-2"></span>
               Users
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="assets">
+            <a class="nav-link" href="{{route ('admin_assets') }}">
               <span data-feather="users"></span>
-              Asset Library 
+              Assets Library 
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('notification') }}">
+            <a class="nav-link" href="{{ route('admin_notification') }}">
               <span data-feather="layers"></span>
-              Notification
+              Notification Manager
             </a>
           </li>
         </ul>

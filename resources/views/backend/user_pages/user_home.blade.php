@@ -1,4 +1,4 @@
-@extends('backend.partials.supervisor_master')
+@extends('backend.partials.user_master')
 
 @section('content')
 

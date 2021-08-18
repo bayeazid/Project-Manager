@@ -1,38 +1,49 @@
 <?php
 
-use App\Http\Controllers\backend\SupervisorController;
-use App\Http\Controllers\backend\UserController;
-use App\Http\Controllers\frontend\login;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\pages\ResourcesController;
-use App\Http\Controllers\pages\HomeController;
-use App\Http\Controllers\pages\ProjectsController;
-use App\Http\Controllers\pages\NotificationController;
-use App\Http\Controllers\pages\TasksController;
-use App\Http\Controllers\pages\UsersController;
-use App\Http\Controllers\pages\AssetsController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//Backend controllar directory
+use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\UserController;
 
-Route::get('/supervisor',[SupervisorController::class,'supervisor']);
+//Frontend controllar directory
+use App\Http\Controllers\frontend\login;
+
+//Admin controllar directory
+use App\Http\Controllers\admin_pages\AdminHomeController;
+use App\Http\Controllers\admin_pages\AdminFilesController;
+use App\Http\Controllers\admin_pages\AdminNotificationController;
+use App\Http\Controllers\admin_pages\AdminTasksController;
+use App\Http\Controllers\admin_pages\AdminUsersController;
+use App\Http\Controllers\admin_pages\AdminAssetsController;
+
+//User controllar directory
+use App\Http\Controllers\user_pages\UserHomeController;
+use App\Http\Controllers\user_pages\UserFilesController;
+use App\Http\Controllers\user_pages\UserNotificationController;
+use App\Http\Controllers\user_pages\UserTasksController;
+use App\Http\Controllers\user_pages\UserAssetsController;
+
+//Backend routs
+Route::get('/admin',[AdminController::class,'admin']);
 Route::get('/user',[UserController::class,'user']);
+
+//Frontend routs
 Route::get('/',[login::class,'login']); 
 
-Route::get('/supervisor/home',[HomeController::class,'home'])->name('home');
-Route::get('/supervisor/resourses',[ResourcesController::class,'resource'])->name('resource');
-Route::get('/supervisor/projects',[ProjectsController::class,'projects'])->name('projects');
-Route::get('/supervisor/tasks',[TasksController::class,'tasks'])->name('tasks');
+//Admin page routs
+Route::get('/admin/home',[AdminHomeController::class,'admin_home'])->name('admin_home');
+Route::get('/admin/files',[AdminFilesController::class,'admin_files'])->name('admin_files');
+Route::get('/admin/tasks',[AdminTasksController::class,'admin_tasks'])->name('admin_tasks');
+Route::get('/admin/notification',[AdminNotificationController::class,'admin_notification'])->name('admin_notification');
+Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
+Route::get('/admin/assets',[AdminAssetsController::class,'admin_assets'])->name('admin_assets');
 
-Route::get('/supervisor/notification',[NotificationController::class,'notification'])->name('notification');
-Route::get('/supervisor/users',[UsersController::class,'users'])->name('users');
 
-Route::get('/supervisor/assets',[AssetsController::class,'assets'])->name('assets');
+
+//User page routs
+Route::get('/user/home',[UserHomeController::class,'user_home'])->name('user_home');
+Route::get('/user/files',[UserFilesController::class,'user_files'])->name('user_files');
+Route::get('/user/tasks',[UserTasksController::class,'user_tasks'])->name('user_tasks');
+Route::get('/user/notification',[UserNotificationController::class,'user_notification'])->name('user_notification');
+Route::get('/user/assets',[UserAssetsController::class,'user_assets'])->name('user_assets');
