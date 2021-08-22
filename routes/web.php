@@ -39,7 +39,7 @@ Route::get('/admin/notification',[AdminNotificationController::class,'admin_noti
 Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
 Route::get('/admin/assets',[AdminAssetsController::class,'admin_assets'])->name('admin_assets');
 
-
+Route::post('/admin/users/',[AdminUsersController::class,'add_users'])->name ('add_user');
 
 //User page routs
 Route::get('/user/home',[UserHomeController::class,'user_home'])->name('user_home');
@@ -47,3 +47,4 @@ Route::get('/user/files',[UserFilesController::class,'user_files'])->name('user_
 Route::get('/user/tasks',[UserTasksController::class,'user_tasks'])->name('user_tasks');
 Route::get('/user/notification',[UserNotificationController::class,'user_notification'])->name('user_notification');
 Route::get('/user/assets',[UserAssetsController::class,'user_assets'])->name('user_assets');
+
