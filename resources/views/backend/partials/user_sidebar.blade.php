@@ -10,28 +10,24 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('user_files')}}">
-              <span data-feather="shopping-cart"></span>
+            <a class="nav-link" href="{{route('user_projects')}}">
               Project Files
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route('user_tasks')}}">
-              <span data-feather="users"></span>
               Tasks
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{route('user_assets')}}">
-              <span data-feather="users"></span>
               Asset Library 
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{route('user_notification')}}">
-              <span data-feather="layers"></span>
               Notification
             </a>
           </li>

@@ -11,7 +11,7 @@ use App\Http\Controllers\frontend\login;
 
 //Admin controllar directory
 use App\Http\Controllers\admin_pages\AdminHomeController;
-use App\Http\Controllers\admin_pages\AdminFilesController;
+use App\Http\Controllers\admin_pages\AdminProjectsController;
 use App\Http\Controllers\admin_pages\AdminNotificationController;
 use App\Http\Controllers\admin_pages\AdminTasksController;
 use App\Http\Controllers\admin_pages\AdminUsersController;
@@ -33,17 +33,18 @@ Route::get('/',[login::class,'login']);
 
 //Admin page routs
 Route::get('/admin/home',[AdminHomeController::class,'admin_home'])->name('admin_home');
-Route::get('/admin/files',[AdminFilesController::class,'admin_files'])->name('admin_files');
+Route::get('/admin/projects',[AdminProjectsController::class,'admin_projects'])->name('admin_projects');
 Route::get('/admin/tasks',[AdminTasksController::class,'admin_tasks'])->name('admin_tasks');
 Route::get('/admin/notification',[AdminNotificationController::class,'admin_notification'])->name('admin_notification');
 Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
 Route::get('/admin/assets',[AdminAssetsController::class,'admin_assets'])->name('admin_assets');
 
-Route::post('/admin/users/',[AdminUsersController::class,'add_users'])->name ('add_user');
+Route::post('/admin/users',[AdminUsersController::class,'add_users'])->name ('add_user');
+Route::post('/admin/projects',[AdminProjectsController::class,'add_project'])->name('add_project');
 
 //User page routs
 Route::get('/user/home',[UserHomeController::class,'user_home'])->name('user_home');
-Route::get('/user/files',[UserFilesController::class,'user_files'])->name('user_files');
+Route::get('/user/projects',[UserProjectsController::class,'user_projects'])->name('user_projects');
 Route::get('/user/tasks',[UserTasksController::class,'user_tasks'])->name('user_tasks');
 Route::get('/user/notification',[UserNotificationController::class,'user_notification'])->name('user_notification');
 Route::get('/user/assets',[UserAssetsController::class,'user_assets'])->name('user_assets');

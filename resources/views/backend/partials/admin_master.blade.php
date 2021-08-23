@@ -10,7 +10,7 @@
     <title>Project Manager Web</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
 
     <!-- Bootstrap core CSS -->

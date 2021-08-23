@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class AdminUsersController extends Controller
 {
     public function admin_users(){
-        return view('backend.admin_pages.admin_users');
+        // $view_user=create_user::paginate(5);
+        $view_user=create_user::all();
+        return view('backend.admin_pages.admin_users',compact('view_user'));
     }
 
     public function add_users(Request $add_users){
@@ -17,10 +19,12 @@ class AdminUsersController extends Controller
        create_user::create([
             'name'=>$add_users->name,
             'email'=>$add_users->email,
-            'password'=>$add_users->password,
             'phone'=>$add_users->phone,
+            'password'=>$add_users->password,
+            'user_type'=>$add_users->user_type,
             'designation'=>$add_users->designation,
-            'user_type'=>$add_users->user_type
+            
        ]);
+       return redirect()->back();
     }
 }

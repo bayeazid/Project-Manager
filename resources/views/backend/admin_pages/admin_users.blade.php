@@ -3,7 +3,7 @@
 @section('content')
 
   <div>
-  <h2><p class="text-center" style="padding-top: 20px;">User List</h2>
+  <h2><p class="text-center" style="padding-top: 20px;">User Lists</h2>
   </div>
 
   <!-- Button trigger modal -->
@@ -22,23 +22,26 @@
         <th scope="col">Phone</th>
         <th scope="col">Designation</th>
         <th scope="col">User Type</th>
-        <th scope="col">Action</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
+      @foreach($view_user as $user_list)
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>        
-          <a href="" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-2">Edit</a>
-          <a href="" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-3">Delete</a>
-        </td>
-      </tr>   
+        <td>{{$user_list->id}}</td>
+        <td>{{$user_list->id}}</td>
+        <td>{{$user_list->name}}</td>
+        <td>{{$user_list->email}}</td>
+        <td>{{$user_list->phone}}</td>
+        <!-- <td>{{$user_list->password}}</td> -->
+        <td>{{$user_list->user_type}}</td>
+        <td>{{$user_list->designation}}</td>
+        <td>
+          <a href=""><i class='fas fa-user-edit'></i></a>
+          <a href=""><i class="material-icons">delete</i></a>
+        </td>   
+      </tr>
+      @endforeach()
     </tbody>
   </table>
 
@@ -72,7 +75,7 @@
         </div>
         <div class="modal-body">
           
-        <form action="{{route('add_user')}}" method="post">
+        <form action="{{route('add_project')}}" method="post">
           @csrf
           <div class="mb-1">
             <label for="" class="form-label">Name</label>
@@ -188,5 +191,5 @@
       </div>
     </div> -->
   
-
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 @endsection

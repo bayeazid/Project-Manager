@@ -10,32 +10,27 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin_files') }}">
-              <span data-feather="file"></span>
+            <a class="nav-link" href="{{ route('admin_projects') }}">
               Projects
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin_tasks') }}">
-              <span data-feather="users"></span>
               Tasks
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin_users') }}">
-              <span data-feather="bar-chart-2"></span>
               Users
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{route ('admin_assets') }}">
-              <span data-feather="users"></span>
               Assets Library 
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin_notification') }}">
-              <span data-feather="layers"></span>
               Notification Manager
             </a>
           </li>
