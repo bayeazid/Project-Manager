@@ -19,7 +19,7 @@ use App\Http\Controllers\admin_pages\AdminAssetsController;
 
 //User controllar directory
 use App\Http\Controllers\user_pages\UserHomeController;
-use App\Http\Controllers\user_pages\UserFilesController;
+use App\Http\Controllers\user_pages\UserProjectsController;
 use App\Http\Controllers\user_pages\UserNotificationController;
 use App\Http\Controllers\user_pages\UserTasksController;
 use App\Http\Controllers\user_pages\UserAssetsController;
@@ -33,14 +33,19 @@ Route::get('/',[login::class,'login']);
 
 //Admin page routs
 Route::get('/admin/home',[AdminHomeController::class,'admin_home'])->name('admin_home');
+Route::post('/admin/projects',[AdminProjectsController::class,'add_projects'])->name('add_project');
 Route::get('/admin/projects',[AdminProjectsController::class,'admin_projects'])->name('admin_projects');
+
+Route::post('/add_category',[AdminProjectsController::class,'addcategory'])->name('addcategory');
+
+
+
 Route::get('/admin/tasks',[AdminTasksController::class,'admin_tasks'])->name('admin_tasks');
 Route::get('/admin/notification',[AdminNotificationController::class,'admin_notification'])->name('admin_notification');
 Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
 Route::get('/admin/assets',[AdminAssetsController::class,'admin_assets'])->name('admin_assets');
-
 Route::post('/admin/users',[AdminUsersController::class,'add_users'])->name ('add_user');
-Route::post('/admin/projects',[AdminProjectsController::class,'add_project'])->name('add_project');
+
 
 //User page routs
 Route::get('/user/home',[UserHomeController::class,'user_home'])->name('user_home');

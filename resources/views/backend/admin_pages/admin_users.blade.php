@@ -100,20 +100,23 @@
           <div class="mb-1">  
           <label for="" class="form-label">User Type</label>
           <select name="user_type" class="form-select form-select-sm" aria-label=".form-select-sm example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            {{-- <option selected>Open this select menu</option> --}}
+            <option value="1">User</option>
+            <option value="2">Admin</option>
           </select>
           </div>
 
           <div class="mb-1">  
           <label for="" class="form-label">User Designation</label>
           <select name="designation" class="form-select form-select-sm" aria-label=".form-select-sm example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option selected>Select Designation</option>
+            <option value="1">Graphic Designer</option>
+            <option value="2">Video Editor</option>
+            <option value="3">Sound Editor</option>
+            <option value="4">Sound Engineer</option>
+            <option value="3">Vfx Artist</option>
+            <option value="3">CGI Artist</option>
+            <option value="3">Animator</option>
           </select>
           </div>
 
