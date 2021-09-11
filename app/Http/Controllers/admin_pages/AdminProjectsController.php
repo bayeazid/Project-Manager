@@ -13,9 +13,12 @@ class AdminProjectsController extends Controller
 {
     public function admin_projects(){
         // $view_projects=create_project::paginate(5);
-        $view_projects=create_project::all();
+        $view_projects = create_project::all();
         // dd($add_projects->all());
-        return view('backend.admin_pages.admin_projects',compact('view_projects'));
+        //dd("ok");
+        $view_catagory = AddCategory2::all();
+        //dd($view_catagory->all());
+        return view('backend.admin_pages.admin_projects',compact('view_projects','view_catagory'));
     }
 
     public function add_projects(Request $add_projects ){

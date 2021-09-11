@@ -6,7 +6,7 @@
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('user_home')}}">
               <span data-feather="home"></span>
-              Home
+              Dashboard
             </a>
           </li>
           <li class="nav-item">

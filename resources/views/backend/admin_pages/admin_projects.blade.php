@@ -19,22 +19,28 @@
         Add Projects Catagory
     </button>
 
-    @if(session()->has('success'))
-    <div class="alert alert-success">
-        {{ session()->get('success') }}
-    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-delete_catagory">
+        View Projects Catagory
+    </button>
+
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
     @endif
 
-    
+
     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endif
+
 
 
     <!-- table -->
@@ -47,7 +53,8 @@
                 <th scope="col">Project Catagory</th>
                 <th scope="col">Project Status</th>
                 <th scope="col">Description</th>
-                <th scope="col">Action</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -58,7 +65,14 @@
                     <td>{{ $add_projects->project_name }}</td>
                     <td>{{ $add_projects->project_catagory }}</td>
                     <td>{{ $add_projects->project_status }}</td>
-                    <td>{{ $add_projects->project_description }}</td>
+                    {{-- <td>{{ $add_projects->project_description }}</td> --}}
+                    <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
+                            data-bs-target="#modal-view_description">
+                            Description
+                        </button></td>
+                    <td>
+                        <a href=""><i class="material-icons">edit</i></a>                        
+                    </td>
                     <td>
                         <a href=""><i class="material-icons">delete</i></a>
                     </td>
@@ -112,9 +126,9 @@
                             <select name="project_catagory" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
                                 <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach ($view_catagory as $show_catagory)
+                                    <option>{{ $show_catagory->catagory_name2 }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -128,14 +142,13 @@
                             <label for="" class="form-label">Project Status</label>
                             <select name="project_status" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">Queud</option>
-                                <option value="2">Prograssing</option>
-                                <option value="3">Completed</option>
+                                <option>Queud</option>
+                                <option>Prograssing</option>
+                                <option>Completed</option>
                             </select>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" class="btn btn-success" value="submit">                            
+                            <input type="submit" class="btn btn-success" value="submit">
                         </div>
                     </form>
 
@@ -160,7 +173,8 @@
                         @csrf
                         <div class="mb-1">
                             <label for="" class="form-label">Catagory Name</label>
-                            <input name="catagory_name" type="text" class="form-control" aria-describedby="emailHelp" required>
+                            <input name="catagory_name" type="text" class="form-control" aria-describedby="emailHelp"
+                                required>
                         </div>
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-success" value="submit">
@@ -172,30 +186,58 @@
         </div>
     </div>
 
+    <!-- Modal delete catagory-->
+    <div class="modal fade" id="modal-delete_catagory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add_user">Delete Project Catagory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Catagory Id</th>
+                                <th scope="col">Catagory Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($view_catagory as $show_catagory)
+                                <tr>
+                                    <td>{{ $show_catagory->id }}</td>
+                                    <td>{{ $show_catagory->catagory_name2 }}</td>
+                                    <td>
+                                        <a href=""><i class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
+                            @endforeach()
+                        </tbody>
+                    </table>
+                </div>
 
+            </div>
+        </div>
+    </div>
 
+    <!-- Modal View-->
+    <div class="modal fade" id="modal-view_description" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add_user">Delete Project Catagory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
+                        {{ $add_projects->project_description }}
 
-    <!-- Modal View
-                          <div class="modal fade" id="modal-view" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="add_user">Project Description</h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
+                </div>
 
-                                <form>
-                                <label for="" class="form-label">"This is project description"</label>
-                                <div class="modal-footer">
-                                  <a href="" type="button" class="btn btn-light">Close</a>
-                                </div>
-                              </div>
-                            </div> -->
-
-
-
+            </div>
+        </div>
+    </div>
 
 
 

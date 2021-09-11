@@ -37,9 +37,10 @@ Route::post('/admin/projects',[AdminProjectsController::class,'add_projects'])->
 Route::get('/admin/projects',[AdminProjectsController::class,'admin_projects'])->name('admin_projects');
 
 Route::post('/add_category',[AdminProjectsController::class,'addcategory'])->name('addcategory');
+Route::post('/delete_category',[AdminProjectsController::class,'deletecategory'])->name('deletecategory');
 
 
-
+Route::post('/admin/add_tasks',[AdminTasksController::class,'add_tasks'])->name('add_tasks');
 Route::get('/admin/tasks',[AdminTasksController::class,'admin_tasks'])->name('admin_tasks');
 Route::get('/admin/notification',[AdminNotificationController::class,'admin_notification'])->name('admin_notification');
 Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
