@@ -14,10 +14,7 @@
     </button>
 
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-delete">
-        Delete Tasks
-    </button>
+
 
     @if(session()->has('success'))
     <div class="alert alert-success">
@@ -42,27 +39,33 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Index</th>
-                <th scope="col">Task Id</th>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
                 <th scope="col">Task Name</th>
                 {{-- <th scope="col">Project Id</th>
                 <th scope="col">Project Name</th> --}}
                 {{-- <th scope="col">Project Status</th> --}}
                 <th scope="col">Task Status</th>
+                <th scope="col">Created at</th>
                 {{-- <th scope="col">Assigned User</th> --}}
-                <th scope="col">Action</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($view_tasks as $show_tasks)
                 <tr>
-                    <td>{{ $show_tasks->id }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $show_tasks->id }}</td>
                     <td>{{ $show_tasks->task_name }}</td>
                     {{-- <td>{{ $add_projects->id }}</td>
                     <td>{{ $add_projects->project_name }}</td> --}}
                     <td>{{ $show_tasks->task_status }}</td>
                     {{-- <td>{{ $view_task->assigned_user }}</td> --}}
+                    <td>{{ $show_tasks->created_at }}</td>
+                    <td>
+                        <a href=""><i class="material-icons">edit</i></a>
+                    </td>
                     <td>
                         <a href=""><i class="material-icons">delete</i></a>
                     </td>
@@ -192,40 +195,7 @@
         </div>
     </div>
 
-    {{-- <!-- Modal delete catagory-->
-    <div class="modal fade" id="modal-delete_catagory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="add_user">Delete Project Catagory</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Catagory Id</th>
-                                <th scope="col">Catagory Name</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- @foreach ($view_catagory as $show_catagory)
-                                <tr>
-                                    <td>{{ $show_catagory->id }}</td>
-                                    <td>{{ $show_catagory->catagory_name2 }}</td>
-                                    <td>
-                                        <a href=""><i class="material-icons">delete</i></a>
-                                    </td>
-                                </tr>
-                            @endforeach() --}}
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </div>
-    </div> --}}
+    
 
 
 

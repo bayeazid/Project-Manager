@@ -47,12 +47,14 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Index</th>
-                <th scope="col">Project Id</th>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
                 <th scope="col">Project Name</th>
                 <th scope="col">Project Catagory</th>
                 <th scope="col">Project Status</th>
-                <th scope="col">Description</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Description</th>                
+                <th scope="col">Assigned User</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -60,15 +62,20 @@
         <tbody>
             @foreach ($view_projects as $add_projects)
                 <tr>
-                    <td>{{ $add_projects->id }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $add_projects->id }}</td>
                     <td>{{ $add_projects->project_name }}</td>
                     <td>{{ $add_projects->project_catagory }}</td>
                     <td>{{ $add_projects->project_status }}</td>
+                    <td>{{ $add_projects->created_at }}</td>
                     {{-- <td>{{ $add_projects->project_description }}</td> --}}
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
                             data-bs-target="#modal-view_description">
-                            Description
+                            View
+                    </button></td>
+                    <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
+                            data-bs-target="#modal-view_user">
+                            View
                         </button></td>
                     <td>
                         <a href=""><i class="material-icons">edit</i></a>                        
@@ -233,6 +240,41 @@
 
                         {{ $add_projects->project_description }}
 
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Assigned User-->
+    <div class="modal fade" id="modal-view_user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add_user">Assigned User List</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">User Id</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($view_catagory as $show_catagory)
+                                <tr>
+                                    <td>{{ $show_catagory->id }}</td>
+                                    <td>{{ $show_catagory->catagory_name2 }}</td>
+                                    <td>
+                                        <a href=""><i class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
+                            @endforeach()
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

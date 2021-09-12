@@ -45,7 +45,7 @@ Route::get('/admin/tasks',[AdminTasksController::class,'admin_tasks'])->name('ad
 Route::get('/admin/notification',[AdminNotificationController::class,'admin_notification'])->name('admin_notification');
 Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
 Route::get('/admin/assets',[AdminAssetsController::class,'admin_assets'])->name('admin_assets');
-Route::post('/admin/users',[AdminUsersController::class,'add_users'])->name ('add_user');
+Route::post('/admin/add_users',[AdminUsersController::class,'add_users'])->name ('add_user');
 
 
 //User page routs

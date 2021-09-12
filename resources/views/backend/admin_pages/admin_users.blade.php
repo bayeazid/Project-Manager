@@ -15,20 +15,22 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Index</th>
-        <th scope="col">User Id</th>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
         <th scope="col">Designation</th>
         <th scope="col">User Type</th>
-        <th scope="col">Actions</th>
+        <th scope="col">Created at</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
       @foreach($view_user as $user_list)
       <tr>
-        <td>{{$user_list->id}}</td>
+        <td>{{$loop->iteration}}</td>
         <td>{{$user_list->id}}</td>
         <td>{{$user_list->name}}</td>
         <td>{{$user_list->email}}</td>
@@ -36,8 +38,11 @@
         <!-- <td>{{$user_list->password}}</td> -->
         <td>{{$user_list->user_type}}</td>
         <td>{{$user_list->designation}}</td>
+        <td>{{$user_list->created_at  }}</td>
         <td>
           <a href=""><i class='fas fa-user-edit'></i></a>
+        </td>
+        <td>
           <a href=""><i class="material-icons">delete</i></a>
         </td>   
       </tr>
@@ -75,7 +80,7 @@
         </div>
         <div class="modal-body">
           
-        <form action="{{route('add_project')}}" method="post">
+        <form action="{{route('add_user')}}" method="post">
           @csrf
           <div class="mb-1">
             <label for="" class="form-label">Name</label>
@@ -101,8 +106,8 @@
           <label for="" class="form-label">User Type</label>
           <select name="user_type" class="form-select form-select-sm" aria-label=".form-select-sm example">
             {{-- <option selected>Open this select menu</option> --}}
-            <option value="1">User</option>
-            <option value="2">Admin</option>
+            <option >User</option>
+            <option >Admin</option>
           </select>
           </div>
 
@@ -110,13 +115,13 @@
           <label for="" class="form-label">User Designation</label>
           <select name="designation" class="form-select form-select-sm" aria-label=".form-select-sm example">
             <option selected>Select Designation</option>
-            <option value="1">Graphic Designer</option>
-            <option value="2">Video Editor</option>
-            <option value="3">Sound Editor</option>
-            <option value="4">Sound Engineer</option>
-            <option value="3">Vfx Artist</option>
-            <option value="3">CGI Artist</option>
-            <option value="3">Animator</option>
+            <option >Graphic Designer</option>
+            <option >Video Editor</option>
+            <option >Sound Editor</option>
+            <option >Sound Engineer</option>
+            <option >Vfx Artist</option>
+            <option >CGI Artist</option>
+            <option >Animator</option>
           </select>
           </div>
 
