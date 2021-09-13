@@ -14,6 +14,12 @@
     </button>
 
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-add">
+        Add Tasks Type
+    </button>
+
+
 
 
     @if(session()->has('success'))
@@ -42,12 +48,10 @@
                 <th scope="col">#</th>
                 <th scope="col">Id</th>
                 <th scope="col">Task Name</th>
-                {{-- <th scope="col">Project Id</th>
-                <th scope="col">Project Name</th> --}}
-                {{-- <th scope="col">Project Status</th> --}}
                 <th scope="col">Task Status</th>
                 <th scope="col">Created at</th>
-                {{-- <th scope="col">Assigned User</th> --}}
+                <th scope="col">Project Name</th>
+                <th scope="col">Assigned User</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -58,17 +62,21 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $show_tasks->id }}</td>
                     <td>{{ $show_tasks->task_name }}</td>
-                    {{-- <td>{{ $add_projects->id }}</td>
-                    <td>{{ $add_projects->project_name }}</td> --}}
                     <td>{{ $show_tasks->task_status }}</td>
-                    {{-- <td>{{ $view_task->assigned_user }}</td> --}}
                     <td>{{ $show_tasks->created_at }}</td>
+                    <td>
+                        Project
+                    </td>
+                    <td>
+                        User
+                    </td>
                     <td>
                         <a href=""><i class="material-icons">edit</i></a>
                     </td>
                     <td>
                         <a href=""><i class="material-icons">delete</i></a>
                     </td>
+                    
                 </tr>
             @endforeach()
         </tbody>
@@ -109,28 +117,39 @@
                     <form action="{{ route('add_tasks') }}" method="post">
                         @csrf
                         <div class="mb-1">
-                            <label for="" class="form-label">task Name</label>
-                            <input name="task_name" type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <label for="" class="form-label">Task Name</label>
+                            <input name="task_name" type="text" class="form-control", placeholder="Type Name or Select from Dropwown">
+                                <select name="task_name" class="form-select form-select-sm"
+                                aria-label=".form-select-sm example">
+                                <option selected>Dropdown</option>
+                                <option >Queud</option>
+                                <option >Prograssing</option>
+                                <option >Completed</option>
+                            </select>
                         </div>
 
-                        {{-- <div class="mb-1">
-                            <label for="" class="form-label">Project Name</label>
-                            <select name="project_catagory" class="form-select form-select-sm"
+                        <div class="mb-1">
+                            <label for="" class="form-label">Select Project</label>
+                            <select name="select_project" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
-                                <option selected>Select a Project</option>
-                                @foreach ($view_projects as $add_projects)
-                                    <option>{{ $add_projects->project_name }}</option>
-                                @endforeach        
+                                <option selected>Select from Dropdown</option>
+                                <option >Queud</option>
+                                <option >Prograssing</option>
+                                <option >Completed</option>
                             </select>
-                        </div> --}}
+                        </div>
 
-                        {{-- <div class="mb-1">
-                            <label for="" class="form-label">Task Status</label>
-                            <input name="task_status" type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                        </div> --}}
-
+                        <div class="mb-1">
+                            <label for="" class="form-label">Add User</label>
+                            <select name="add_user" class="form-select form-select-sm"
+                                aria-label=".form-select-sm example">
+                                <option selected>Select from Dropdown</option>
+                                <option >Queud</option>
+                                <option >Prograssing</option>
+                                <option >Completed</option>
+                            </select>
+                        </div>
+                        
                         <div class="mb-1">
                             <label for="" class="form-label">Task Status</label>
                             <select name="task_status" class="form-select form-select-sm"
@@ -140,22 +159,8 @@
                                 <option >Completed</option>
                             </select>
                         </div>
-
+                                       
                         
-
-                        {{-- <div class="mb-1">
-                            <label for="" class="form-label">Assign User</label>
-                            <select name="project_catagory" class="form-select form-select-sm"
-                                aria-label=".form-select-sm example">
-                                <option selected>Select User</option>
-                                @foreach($view_user as $user_list)
-                                    <option>{{$user_list->name}}</option>
-                                @endforeach        
-                            </select>
-                        </div> --}}
-
-                        
-
                        
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-success" value="submit">                            
@@ -169,35 +174,34 @@
     </div>
 
 
-    <!-- Modal add catagory-->
-    <div class="modal fade" id="modal-add_catagory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="add_user">Create New Project Catagory</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Modal Add-->
+        <div class="modal fade" id="modal-add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="add_user">Creat Tasks</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+    
+                        <form action="{{ route('add_type') }}" method="post">
+                            @csrf
+                            <div class="mb-1">
+                                <label for="" class="form-label">Task Name</label>
+                                <input name="task_name" type="text" class="form-control", placeholder="Type Name">                                    
+                                </select>
+                            </div>   
+                            
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-success" value="submit">                            
+                            </div>
+                        </form>
+    
+                    </div>
+    
                 </div>
-                <div class="modal-body">
-
-                    <form action="{{ route('addcategory') }}" method="POST">
-                        @csrf
-                        <div class="mb-1">
-                            <label for="" class="form-label">Catagory Name</label>
-                            <input name="catagory_name" type="text" class="form-control" aria-describedby="emailHelp" required>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="submit" class="btn btn-success" value="submit">
-                        </div>
-                    </form>
-                </div>
-
             </div>
         </div>
-    </div>
-
-    
-
-
 
 
 

@@ -53,8 +53,10 @@
                 <th scope="col">Project Catagory</th>
                 <th scope="col">Project Status</th>
                 <th scope="col">Created at</th>
-                <th scope="col">Description</th>                
-                <th scope="col">Assigned User</th>
+                <th scope="col">Description</th>
+                <th scope="col">Tasks</th>               
+                <th scope="col">Users</th>
+                <th scope="col">Resources</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -70,13 +72,22 @@
                     <td>{{ $add_projects->created_at }}</td>
                     {{-- <td>{{ $add_projects->project_description }}</td> --}}
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
-                            data-bs-target="#modal-view_description">
-                            View
+                        data-bs-target="#modal-view_description">
+                        View
                     </button></td>
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
-                            data-bs-target="#modal-view_user">
-                            View
-                        </button></td>
+                        data-bs-target="#modal-view_description">
+                        View
+                    </button></td>
+                    <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
+                        data-bs-target="#modal-view_user">
+                        View
+                    </button></td>
+                    <td>
+                        <a class="btn btn-light" href="{{route ('admin_resources') }}">
+                          View
+                        </a>                    
+                    </td>                    
                     <td>
                         <a href=""><i class="material-icons">edit</i></a>                        
                     </td>

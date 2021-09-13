@@ -28,7 +28,10 @@ class AdminProjectsController extends Controller
             'project_name'=>$add_projects->project_name,
             'project_catagory'=>$add_projects->project_catagory,
             'project_description'=>$add_projects->project_description,
-            'project_status'=>$add_projects->project_status,            
+            'project_status'=>$add_projects->project_status,
+            'project_tasks'=>$add_projects->project_tasks,
+            'project_users'=>$add_projects->project_users,
+            'project_resources'=>$add_projects->project_resources,               
        ]);
        return redirect()->back();
     }

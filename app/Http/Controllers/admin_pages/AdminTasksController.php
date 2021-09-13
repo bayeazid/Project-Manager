@@ -19,10 +19,7 @@ class AdminTasksController extends Controller
         AddTasks::create([
             'task_name'=>$add_tasks->task_name,
             'task_status'=>$add_tasks->task_status,
-            // 'project_catagory'=>$add_tasks->project_catagory,
-            // 'project_description'=>$add_tasks->project_description,
-            // 'project_status'=>$add_tasks->project_status,            
-       ]);
+        ]);
        return redirect()->back();
     }
 }

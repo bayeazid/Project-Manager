@@ -16,6 +16,7 @@ use App\Http\Controllers\admin_pages\AdminNotificationController;
 use App\Http\Controllers\admin_pages\AdminTasksController;
 use App\Http\Controllers\admin_pages\AdminUsersController;
 use App\Http\Controllers\admin_pages\AdminAssetsController;
+use App\Http\Controllers\admin_pages\AdminResourcesController;
 
 //User controllar directory
 use App\Http\Controllers\user_pages\UserHomeController;
@@ -39,12 +40,13 @@ Route::get('/admin/projects',[AdminProjectsController::class,'admin_projects'])-
 Route::post('/add_category',[AdminProjectsController::class,'addcategory'])->name('addcategory');
 Route::post('/delete_category',[AdminProjectsController::class,'deletecategory'])->name('deletecategory');
 
-
+Route::post('/admin/add_type',[AdminTasksController::class,'add_type'])->name('add_type');
 Route::post('/admin/add_tasks',[AdminTasksController::class,'add_tasks'])->name('add_tasks');
 Route::get('/admin/tasks',[AdminTasksController::class,'admin_tasks'])->name('admin_tasks');
 Route::get('/admin/notification',[AdminNotificationController::class,'admin_notification'])->name('admin_notification');
 Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
 Route::get('/admin/assets',[AdminAssetsController::class,'admin_assets'])->name('admin_assets');
+Route::get('/admin/resources',[AdminResourcesController::class,'admin_resources'])->name('admin_resources');
 Route::post('/admin/add_users',[AdminUsersController::class,'add_users'])->name ('add_user');
 
 

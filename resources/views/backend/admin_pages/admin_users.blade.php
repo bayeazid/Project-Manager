@@ -122,6 +122,7 @@
             <option >Vfx Artist</option>
             <option >CGI Artist</option>
             <option >Animator</option>
+            <option >Proofreader</option>
           </select>
           </div>
 
