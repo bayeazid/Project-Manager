@@ -13,11 +13,16 @@
         Create Tasks
     </button>
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-add-type">
+        Add Tasks Name
+    </button>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-add">
-        Add Tasks Type
+    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-view-type">
+        View Tasks Name
     </button>
+
 
 
 
@@ -175,16 +180,16 @@
 
 
         <!-- Modal Add-->
-        <div class="modal fade" id="modal-add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-add-type" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="add_user">Creat Tasks</h5>
+                        <h5 class="modal-title" id="add_user">Add Tasks Name</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
     
-                        <form action="{{ route('add_type') }}" method="post">
+                        <form action="{{ route('admin_tasks_name') }}" method="post">
                             @csrf
                             <div class="mb-1">
                                 <label for="" class="form-label">Task Name</label>
@@ -202,6 +207,46 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal View-->
+        <div class="modal fade" id="modal-view-type" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="add_user">View Project Catagory</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead>
+                                <tr>          
+                                    <th scope="col">Catagory Name</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @foreach ($view_catagory as $show_catagory) --}}
+                                    <tr>
+                                        <td></td>
+                                        {{-- <td>{{ $show_catagory->id }}</td>
+                                        <td>{{ $show_catagory->catagory_name2 }}</td> --}}
+                                        <td>
+                                            <a href=""><i class="material-icons">edit</i></a>
+                                        </td>
+                                        <td>
+                                            <a href=""><i class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                {{-- @endforeach() --}}
+                            </tbody>
+                        </table>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
 
 
 

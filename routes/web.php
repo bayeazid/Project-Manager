@@ -42,8 +42,12 @@ Route::post('/delete_category',[AdminProjectsController::class,'deletecategory']
 
 Route::post('/admin/add_type',[AdminTasksController::class,'add_type'])->name('add_type');
 Route::post('/admin/add_tasks',[AdminTasksController::class,'add_tasks'])->name('add_tasks');
+
+Route::post('/admin/tasks_name',[AdminTasksController::class,'add_tasks_name'])->name('admin_tasks_name');
 Route::get('/admin/tasks',[AdminTasksController::class,'admin_tasks'])->name('admin_tasks');
 Route::get('/admin/notification',[AdminNotificationController::class,'admin_notification'])->name('admin_notification');
+
+Route::post('/admin/add_designation',[AdminUsersController::class,'add_designation'])->name('add_designation');
 Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
 Route::get('/admin/assets',[AdminAssetsController::class,'admin_assets'])->name('admin_assets');
 Route::get('/admin/resources',[AdminResourcesController::class,'admin_resources'])->name('admin_resources');

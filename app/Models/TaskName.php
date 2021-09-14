@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class add_catagory extends Model
+class TaskName extends Model
 {
     use HasFactory;
-    protected $fillable=['catagory_name2'];
+    protected $table="task_names";
+    protected $guarded=[];
 }

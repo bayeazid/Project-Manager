@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin_pages;
 
 use App\Http\Controllers\Controller;
 use App\Models\AddTasks;
+use App\Models\TaskName;
 use Illuminate\Http\Request;
 
 class AdminTasksController extends Controller
@@ -22,4 +23,15 @@ class AdminTasksController extends Controller
         ]);
        return redirect()->back();
     }
+
+    public function add_tasks_name(Request $add_tasks_name ){
+        // dd($add_tasks->all());
+        // field name from db | method | field name from form
+        TaskName::create([
+            'task_name'=>$add_tasks_name->task_name,
+          ]);
+       return redirect()->back();
+    }
 }
+
+
