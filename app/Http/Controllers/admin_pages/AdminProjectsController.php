@@ -5,8 +5,12 @@ namespace App\Http\Controllers\admin_pages;
 use App\Http\Controllers\Controller;
 use App\Models\add_catagory;
 use App\Models\add_catagory2;
-use App\Models\AddCategory2;
+use App\Models\AddCatagory;
+// use App\Models\AddCategory2;
+use App\Models\AddCategory;
 use App\Models\create_project;
+use App\Models\AddTasks;
+use App\Models\create_user;
 use Illuminate\Http\Request;
 
 class AdminProjectsController extends Controller
@@ -16,9 +20,12 @@ class AdminProjectsController extends Controller
         $view_projects = create_project::all();
         // dd($add_projects->all());
         //dd("ok");
-        $view_catagory = AddCategory2::all();
+        $view_catagory = AddCatagory::all();
+        // $view_catagory = AddCategory2::all();
         //dd($view_catagory->all());
-        return view('backend.admin_pages.admin_projects',compact('view_projects','view_catagory'));
+        $view_tasks = AddTasks::all();
+        $view_user=create_user::all();
+        return view('backend.admin_pages.admin_projects',compact('view_projects','view_catagory','view_tasks','view_user'));
     }
 
     public function add_projects(Request $add_projects ){
@@ -39,8 +46,11 @@ class AdminProjectsController extends Controller
     public function addcategory(Request $request)
     {
        // dd($request->all());
-       $request= AddCategory2::create([
-            'catagory_name2' =>$request->catagory_name,
+        // $request= AddCategory2::create([
+        $request= AddCatagory::create([
+            // field name from db | method | field name from form
+            // 'catagory_name2' =>$request->catagory_name,
+            'catagory_name' =>$request->catagory_name,
         ]);
 
         if($request){

@@ -76,7 +76,7 @@
                         View
                     </button></td>
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
-                        data-bs-target="#modal-view_description">
+                        data-bs-target="#modal-view_tasks">
                         View
                     </button></td>
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
@@ -145,7 +145,7 @@
                                 aria-label=".form-select-sm example">
                                 <option selected>Open this select menu</option>
                                 @foreach ($view_catagory as $show_catagory)
-                                    <option>{{ $show_catagory->catagory_name2 }}</option>
+                                    <option>{{ $show_catagory->catagory_name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -204,7 +204,7 @@
         </div>
     </div>
 
-    <!-- Modal Viwe catagory-->
+    <!-- Modal View catagory-->
     <div class="modal fade" id="modal-delete_catagory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -225,7 +225,7 @@
                             @foreach ($view_catagory as $show_catagory)
                                 <tr>
                                     <td>{{ $show_catagory->id }}</td>
-                                    <td>{{ $show_catagory->catagory_name2 }}</td>
+                                    <td>{{ $show_catagory->catagory_name }}</td>
                                     <td>
                                         <a href=""><i class="material-icons">delete</i></a>
                                     </td>
@@ -239,7 +239,7 @@
         </div>
     </div>
 
-    <!-- Modal View-->
+    <!-- Modal Description-->
     <div class="modal fade" id="modal-view_description" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -257,6 +257,41 @@
         </div>
     </div>
 
+    <!-- Modal view tasks-->
+    <div class="modal fade" id="modal-view_tasks" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add_user">Tasks Under This Project</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Task Id</th>
+                                <th scope="col">Task Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($view_tasks as $show_tasks)
+                                <tr>
+                                    <td>{{ $show_tasks->id }}</td>
+                                    <td>{{ $show_tasks->task_name }}</td>
+                                    <td>
+                                        <a href=""><i class="material-icons">delete</i></a>
+                                    </td>
+                                </tr>
+                            @endforeach()
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
     <!-- Modal Assigned User-->
     <div class="modal fade" id="modal-view_user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -275,10 +310,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($view_catagory as $show_catagory)
+                            @foreach ($view_user as $user_list)
                                 <tr>
-                                    <td>{{ $show_catagory->id }}</td>
-                                    <td>{{ $show_catagory->catagory_name2 }}</td>
+                                    <td>{{ $user_list->id }}</td>
+                                    <td>{{ $user_list->name }}</td>
                                     <td>
                                         <a href=""><i class="material-icons">delete</i></a>
                                     </td>

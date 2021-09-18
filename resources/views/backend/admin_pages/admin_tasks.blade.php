@@ -70,10 +70,10 @@
                     <td>{{ $show_tasks->task_status }}</td>
                     <td>{{ $show_tasks->created_at }}</td>
                     <td>
-                        Project
+                        {{ $show_tasks->project_name }}
                     </td>
                     <td>
-                        User
+                        {{ $show_tasks->name }}
                     </td>
                     <td>
                         <a href=""><i class="material-icons">edit</i></a>
@@ -127,31 +127,35 @@
                                 <select name="task_name" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
                                 <option selected>Dropdown</option>
-                                <option >Queud</option>
-                                <option >Prograssing</option>
-                                <option >Completed</option>
+                                {{-- @foreach ($comes from controller as $new variable)         --}}
+                                @foreach ($show_taskname as $taskname)
+                                    <tr>
+                                        {{-- {{variable name -> field name}}     --}}
+                                        <option> {{ $taskname->task_name }} </option>                                                
+                                    </tr>
+                                @endforeach()
                             </select>
                         </div>
 
                         <div class="mb-1">
                             <label for="" class="form-label">Select Project</label>
-                            <select name="select_project" class="form-select form-select-sm"
+                            <select name="project_name" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
                                 <option selected>Select from Dropdown</option>
-                                <option >Queud</option>
-                                <option >Prograssing</option>
-                                <option >Completed</option>
+                                @foreach ($view_projects as $add_projects)
+                                    <option >{{ $add_projects->project_name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="mb-1">
                             <label for="" class="form-label">Add User</label>
-                            <select name="add_user" class="form-select form-select-sm"
+                            <select name="name" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
                                 <option selected>Select from Dropdown</option>
-                                <option >Queud</option>
-                                <option >Prograssing</option>
-                                <option >Completed</option>
+                                @foreach ($view_user as $user_list)
+                                    <option >{{ $user_list->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         
@@ -225,12 +229,12 @@
                                     <th scope="col">Delete</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                {{-- @foreach ($view_catagory as $show_catagory) --}}
+                            <tbody> 
+                                {{-- @foreach ($comes from controller as $new variable)         --}}
+                                @foreach ($show_taskname as $taskname)
                                     <tr>
-                                        <td></td>
-                                        {{-- <td>{{ $show_catagory->id }}</td>
-                                        <td>{{ $show_catagory->catagory_name2 }}</td> --}}
+                                        {{-- {{variable name -> field name}}     --}}
+                                        <td>{{ $taskname->task_name }}</td>                                        
                                         <td>
                                             <a href=""><i class="material-icons">edit</i></a>
                                         </td>
@@ -238,7 +242,7 @@
                                             <a href=""><i class="material-icons">delete</i></a>
                                         </td>
                                     </tr>
-                                {{-- @endforeach() --}}
+                                @endforeach()
                             </tbody>
                         </table>
                     </div>

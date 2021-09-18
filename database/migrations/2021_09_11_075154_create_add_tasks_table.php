@@ -17,6 +17,8 @@ class CreateAddTasksTable extends Migration
             $table->id();
             $table->string('task_name');
             $table->string('task_status');
+            $table->string('project_name');
+            $table->string('name');
             $table->timestamps();
         });
     }

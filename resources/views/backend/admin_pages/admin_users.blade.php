@@ -52,7 +52,7 @@
                     <td>{{ $user_list->designation }}</td>
                     <td>{{ $user_list->created_at }}</td>
                     <td>
-                        <a href=""><i class='fas fa-user-edit'></i></a>
+                        <a href=""><i class='fas fa-user-edit' data-bs-toggle="modal" data-bs-target="#modal-delete"></i></a>
                     </td>
                     <td>
                         <a href=""><i class="material-icons">delete</i></a>
@@ -186,17 +186,17 @@
                         <thead>
                             <tr>
                                 <th scope="col">Type Name</th>
-                                <th scope="col">Edit</th>
+                                <th scope="col">Edit</th>   
                                 <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($view_designations as $show_designation)
                             <tr>
-                                <td></td>
+                                {{-- {{variable name -> field name from DB}}  --}}
                                 <td>{{ $show_designation->user_designations}}</td>
                                 <td>
-                                    <a href=""><i class="material-icons">edit</i></a>
+                                    <a href=""><i class="material-icons" >edit</i></a>
                                 </td>
                                 <td>
                                     <a href=""><i class="material-icons">delete</i></a>
@@ -211,7 +211,32 @@
         </div>
     </div>
 
+    <!-- Modal Delete Confirmation-->
+    <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="add_user">Add User Designation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form >
+                    {{-- <form action="{{ route('add_designation') }}" method="post"> --}}
+                        @csrf
+                        <div class="mb-1">
+                            <label for="" class="form-label">Are you sure, you want to delete this </label>                        
+                        </div>
 
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" value="submit">
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
