@@ -34,24 +34,39 @@ Route::get('/',[login::class,'login']);
 
 //Admin page routs
 Route::get('/admin/home',[AdminHomeController::class,'admin_home'])->name('admin_home');
-Route::post('/admin/projects',[AdminProjectsController::class,'add_projects'])->name('add_project');
 Route::get('/admin/projects',[AdminProjectsController::class,'admin_projects'])->name('admin_projects');
 
+Route::post('/admin/projects',[AdminProjectsController::class,'add_projects'])->name('add_project');
+Route::get('/admin/delete_projects/{id}',[AdminProjectsController::class,'delete_project'])->name('delete_project');
+
 Route::post('/add_category',[AdminProjectsController::class,'addcategory'])->name('addcategory');
-Route::post('/delete_category',[AdminProjectsController::class,'deletecategory'])->name('deletecategory');
+Route::get('/delete_category/{id}',[AdminProjectsController::class,'delete_category'])->name('delete_category');
 
+//tasks
 Route::post('/admin/add_type',[AdminTasksController::class,'add_type'])->name('add_type');
-Route::post('/admin/add_tasks',[AdminTasksController::class,'add_tasks'])->name('add_tasks');
+Route::get('/admin/delete_type/{id}',[AdminTasksController::class,'delete_type'])->name('delete_type');
 
-Route::post('/admin/tasks_name',[AdminTasksController::class,'add_tasks_name'])->name('admin_tasks_name');
+Route::post('/admin/add_tasks',[AdminTasksController::class,'add_tasks'])->name('add_tasks');
+Route::get('/admin/delete_tasks/{id}',[AdminTasksController::class,'delete_tasks'])->name('delete_tasks');
+
+Route::post('/admin/add_tasks_name',[AdminTasksController::class,'add_tasks_name'])->name('admin_tasks_name');
+Route::get('/admin/delete_tasks_name/{id}',[AdminTasksController::class,'delete_tasks_name'])->name('delete_tasks_name');
+
 Route::get('/admin/tasks',[AdminTasksController::class,'admin_tasks'])->name('admin_tasks');
 Route::get('/admin/notification',[AdminNotificationController::class,'admin_notification'])->name('admin_notification');
 
+
+//users
 Route::post('/admin/add_designation',[AdminUsersController::class,'add_designation'])->name('add_designation');
+Route::get('/admin/delete_designation/{id}',[AdminUsersController::class,'delete_designation'])->name('delete_designation');
+
 Route::get('/admin/users',[AdminUsersController::class,'admin_users'])->name('admin_users');
+
 Route::get('/admin/assets',[AdminAssetsController::class,'admin_assets'])->name('admin_assets');
 Route::get('/admin/resources',[AdminResourcesController::class,'admin_resources'])->name('admin_resources');
+
 Route::post('/admin/add_users',[AdminUsersController::class,'add_users'])->name ('add_user');
+Route::get('/admin/delete_user/{id}',[AdminUsersController::class,'delete_users'])->name ('delete_user');
 
 
 //User page routs

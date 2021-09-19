@@ -55,6 +55,7 @@
                 <th scope="col">Task Name</th>
                 <th scope="col">Task Status</th>
                 <th scope="col">Created at</th>
+                <th scope="col">Project ID</th>
                 <th scope="col">Project Name</th>
                 <th scope="col">Assigned User</th>
                 <th scope="col">Edit</th>
@@ -69,17 +70,15 @@
                     <td>{{ $show_tasks->task_name }}</td>
                     <td>{{ $show_tasks->task_status }}</td>
                     <td>{{ $show_tasks->created_at }}</td>
-                    <td>
-                        {{ $show_tasks->project_name }}
-                    </td>
-                    <td>
-                        {{ $show_tasks->name }}
-                    </td>
+                    <td>{{ $show_tasks->project_name }}</td>
+                    <td>{{ $show_tasks->project_name }}</td>
+                    <td>{{ $show_tasks->name }}</td>
                     <td>
                         <a href=""><i class="material-icons">edit</i></a>
                     </td>
                     <td>
-                        <a href=""><i class="material-icons">delete</i></a>
+                        <a href="{{route('delete_tasks',$show_tasks->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                        {{-- {{route('product.delete',$product->id)}} --}}
                     </td>
                     
                 </tr>
@@ -134,6 +133,17 @@
                                         <option> {{ $taskname->task_name }} </option>                                                
                                     </tr>
                                 @endforeach()
+                            </select>
+                        </div>
+
+                        <div class="mb-1">
+                            <label for="" class="form-label">Select Project</label>
+                            <select name="project_name" class="form-select form-select-sm"
+                                aria-label=".form-select-sm example">
+                                <option selected>Select from Dropdown</option>
+                                @foreach ($view_projects as $add_projects)
+                                    <option value="{{ $add_projects->id }}">{{ $add_projects->project_name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -225,7 +235,7 @@
                             <thead>
                                 <tr>          
                                     <th scope="col">Catagory Name</th>
-                                    <th scope="col">Edit</th>
+                                    {{-- <th scope="col">Edit</th> --}}
                                     <th scope="col">Delete</th>
                                 </tr>
                             </thead>
@@ -235,11 +245,13 @@
                                     <tr>
                                         {{-- {{variable name -> field name}}     --}}
                                         <td>{{ $taskname->task_name }}</td>                                        
-                                        <td>
+                                        {{-- <td>
                                             <a href=""><i class="material-icons">edit</i></a>
-                                        </td>
+                                        </td> --}}
                                         <td>
-                                            <a href=""><i class="material-icons">delete</i></a>
+                                            {{-- <a href="{{route('delete_tasks_name',$DB field name->id)}}"> --}}
+                                            <a href="{{route('delete_tasks_name',$taskname->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                                            {{-- {{route('product.delete',$product->id)}} --}}
                                         </td>
                                     </tr>
                                 @endforeach()

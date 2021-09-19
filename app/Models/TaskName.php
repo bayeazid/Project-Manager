@@ -10,4 +10,8 @@ class TaskName extends Model
     use HasFactory;
     protected $table="task_names";
     protected $guarded=[];
+    // public function project(){
+    //     return $this->belongsTo(create_project::class, 'project_name','id');
+        
+    // }
 }

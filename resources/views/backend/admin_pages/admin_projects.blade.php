@@ -50,8 +50,8 @@
                 <th scope="col">#</th>
                 <th scope="col">Id</th>
                 <th scope="col">Project Name</th>
-                <th scope="col">Project Catagory</th>
-                <th scope="col">Project Status</th>
+                <th scope="col">Catagory</th>
+                <th scope="col">Status</th>
                 <th scope="col">Created at</th>
                 <th scope="col">Description</th>
                 <th scope="col">Tasks</th>               
@@ -92,7 +92,9 @@
                         <a href=""><i class="material-icons">edit</i></a>                        
                     </td>
                     <td>
-                        <a href=""><i class="material-icons">delete</i></a>
+                        {{-- <a href="{{route('delete_user',$view_projects->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a> --}}
+                        <a href="{{route('delete_project',$add_projects->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                        {{-- <a href="{{route('delete_user',$view_projects->id)}}" class="btn btn-denger"></a> --}}
                     </td>
                 </tr>
             @endforeach()
@@ -216,7 +218,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Catagory Id</th>
+                                {{-- <th scope="col">Catagory Id</th> --}}
                                 <th scope="col">Catagory Name</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -224,10 +226,11 @@
                         <tbody>
                             @foreach ($view_catagory as $show_catagory)
                                 <tr>
-                                    <td>{{ $show_catagory->id }}</td>
+                                    {{-- <td>{{ $show_catagory->id }}</td> --}}
                                     <td>{{ $show_catagory->catagory_name }}</td>
                                     <td>
-                                        <a href=""><i class="material-icons">delete</i></a>
+                                        <a href="{{route('delete_category',$show_catagory->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                                        {{-- {{route('product.delete',$product->id)}} --}}
                                     </td>
                                 </tr>
                             @endforeach()
@@ -278,9 +281,12 @@
                             @foreach ($view_tasks as $show_tasks)
                                 <tr>
                                     <td>{{ $show_tasks->id }}</td>
+                                    {{-- <td></td> --}}
+                                    
                                     <td>{{ $show_tasks->task_name }}</td>
                                     <td>
-                                        <a href=""><i class="material-icons">delete</i></a>
+                                        <a href=""> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                                        {{-- {{route('product.delete',$product->id)}} --}}
                                     </td>
                                 </tr>
                             @endforeach()
@@ -310,12 +316,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($view_user as $user_list)
+                            {{-- @foreach ($view_user as $user_list) --}}
+                            @foreach ($view_tasks as $show_tasks)
                                 <tr>
-                                    <td>{{ $user_list->id }}</td>
-                                    <td>{{ $user_list->name }}</td>
+                                    <td></td>
+                                    {{-- <td>{{ $user_list->id }}</td>
+                                    <td>{{ $user_list->task_name }}</td> --}}
+                                    <td>{{ $show_tasks->name }}</td>
                                     <td>
-                                        <a href=""><i class="material-icons">delete</i></a>
+                                        <a href=""> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                                        {{-- {{route('product.delete',$product->id)}} --}}
                                     </td>
                                 </tr>
                             @endforeach()

@@ -18,6 +18,7 @@ class AdminProjectsController extends Controller
     public function admin_projects(){
         // $view_projects=create_project::paginate(5);
         $view_projects = create_project::all();
+        // $view_projects = create_project::where('project_name')->get();
         // dd($add_projects->all());
         //dd("ok");
         $view_catagory = AddCatagory::all();
@@ -25,6 +26,7 @@ class AdminProjectsController extends Controller
         //dd($view_catagory->all());
         $view_tasks = AddTasks::all();
         $view_user=create_user::all();
+        // dd($view_project->all)
         return view('backend.admin_pages.admin_projects',compact('view_projects','view_catagory','view_tasks','view_user'));
     }
 
@@ -41,6 +43,11 @@ class AdminProjectsController extends Controller
             'project_resources'=>$add_projects->project_resources,               
        ]);
        return redirect()->back();
+    }
+
+    public function delete_project($id){
+        create_project::destroy($id);
+        return redirect()->back();
     }
 
     public function addcategory(Request $request)
@@ -61,5 +68,8 @@ class AdminProjectsController extends Controller
         }
     }
     
-    
+    public function delete_category($id){
+        AddCatagory::destroy($id);
+        return redirect()->back();
+    }
 }

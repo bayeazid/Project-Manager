@@ -7,6 +7,7 @@ use App\Models\create_user;
 use App\Models\UserDesignation;
 use Illuminate\Http\Request;
 
+
 class AdminUsersController extends Controller
 {
     public function admin_users(){
@@ -30,11 +31,26 @@ class AdminUsersController extends Controller
        return redirect()->back();
     }
 
+     public function delete_users($id){
+          // dd($id);  
+          create_user::destroy($id);
+          return redirect()->back();
+     }
+
+     
     public function add_designation(Request $add_designation){
         // field name from db  || field name from form 
         UserDesignation::create([
              'user_designations'=>$add_designation->user_designation,       
-        ]);
-        return redirect()->back();
+        ]);       
+       
+         return redirect()->back();
+
+     }  
+     
+     public function delete_designation($id){
+          // dd($id);  
+          UserDesignation::destroy($id);
+          return redirect()->back();
      }
 }

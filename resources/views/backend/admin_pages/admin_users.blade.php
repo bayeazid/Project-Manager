@@ -23,6 +23,7 @@
         View User Designation
     </button>
 
+
     <!-- table -->
     <table class="table">
         <thead>
@@ -54,8 +55,9 @@
                     <td>
                         <a href=""><i class='fas fa-user-edit' data-bs-toggle="modal" data-bs-target="#modal-delete"></i></a>
                     </td>
-                    <td>
-                        <a href=""><i class="material-icons">delete</i></a>
+                    <td>                        
+                        <a href="{{route('delete_user',$user_list->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                        {{-- {{route('product.delete',$product->id)}} --}}
                     </td>
                 </tr>
             @endforeach()
@@ -186,7 +188,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Type Name</th>
-                                <th scope="col">Edit</th>   
+                                {{-- <th scope="col">Edit</th>    --}}
                                 <th scope="col">Delete</th>
                             </tr>
                         </thead>
@@ -195,11 +197,12 @@
                             <tr>
                                 {{-- {{variable name -> field name from DB}}  --}}
                                 <td>{{ $show_designation->user_designations}}</td>
-                                <td>
+                                {{-- <td>
                                     <a href=""><i class="material-icons" >edit</i></a>
-                                </td>
+                                </td> --}}
                                 <td>
-                                    <a href=""><i class="material-icons">delete</i></a>
+                                    <a href="{{route('delete_designation',$show_designation->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                                    {{-- {{route('product.delete',$product->id)}} --}}
                                 </td>
                             </tr>
                             @endforeach()
@@ -211,32 +214,7 @@
         </div>
     </div>
 
-    <!-- Modal Delete Confirmation-->
-    <div class="modal fade" id="modal-delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="add_user">Add User Designation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form >
-                    {{-- <form action="{{ route('add_designation') }}" method="post"> --}}
-                        @csrf
-                        <div class="mb-1">
-                            <label for="" class="form-label">Are you sure, you want to delete this </label>                        
-                        </div>
-
-                        <div class="modal-footer">
-                            <input type="submit" class="btn btn-success" value="submit">
-                        </div>
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
+    
 
 
 
