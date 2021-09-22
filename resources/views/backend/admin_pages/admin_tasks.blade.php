@@ -136,6 +136,17 @@
                             </select>
                         </div>
 
+                        {{-- <div class="mb-1">
+                            <label for="" class="form-label">Select Project</label>
+                            <select name="project_name" class="form-select form-select-sm"
+                                aria-label=".form-select-sm example">
+                                <option selected>Select from Dropdown</option>
+                                @foreach ($view_projects as $add_projects)
+                                    <option >{{ $add_projects->project_name }}</option>
+                                @endforeach
+                            </select>
+                        </div> --}}
+
                         <div class="mb-1">
                             <label for="" class="form-label">Select Project</label>
                             <select name="project_name" class="form-select form-select-sm"
@@ -147,17 +158,7 @@
                             </select>
                         </div>
 
-                        <div class="mb-1">
-                            <label for="" class="form-label">Select Project</label>
-                            <select name="project_name" class="form-select form-select-sm"
-                                aria-label=".form-select-sm example">
-                                <option selected>Select from Dropdown</option>
-                                @foreach ($view_projects as $add_projects)
-                                    <option >{{ $add_projects->project_name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
+                        
                         <div class="mb-1">
                             <label for="" class="form-label">Add User</label>
                             <select name="name" class="form-select form-select-sm"
@@ -262,8 +263,5 @@
                 </div>
             </div>
         </div>
-
-
-
 
 @endsection

@@ -54,7 +54,7 @@
                 <th scope="col">Status</th>
                 <th scope="col">Created at</th>
                 <th scope="col">Description</th>
-                <th scope="col">Tasks</th>               
+                <th scope="col">Tasks</th>
                 <th scope="col">Users</th>
                 <th scope="col">Resources</th>
                 <th scope="col">Edit</th>
@@ -72,28 +72,30 @@
                     <td>{{ $add_projects->created_at }}</td>
                     {{-- <td>{{ $add_projects->project_description }}</td> --}}
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
-                        data-bs-target="#modal-view_description">
-                        View
-                    </button></td>
+                            data-bs-target="#modal-view_description">
+                            View
+                        </button></td>
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
-                        data-bs-target="#modal-view_tasks">
-                        View
-                    </button></td>
+                            data-bs-target="#modal-view_tasks">
+                            View
+                        </button></td>
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
-                        data-bs-target="#modal-view_user">
-                        View
-                    </button></td>
+                            data-bs-target="#modal-view_user">
+                            View
+                        </button></td>
                     <td>
-                        <a class="btn btn-light" href="{{route ('admin_resources') }}">
-                          View
-                        </a>                    
-                    </td>                    
+                        <a class="btn btn-light" href="{{ route('admin_resources') }}">
+                            View
+                        </a>
+                    </td>
                     <td>
-                        <a href=""><i class="material-icons">edit</i></a>                        
+                        <a href=""><i class="material-icons">edit</i></a>
                     </td>
                     <td>
                         {{-- <a href="{{route('delete_user',$view_projects->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a> --}}
-                        <a href="{{route('delete_project',$add_projects->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                        <a href="{{ route('delete_project', $add_projects->id) }}"> <i
+                                onclick="return confirm('Are you sure you want to delete this item?');"
+                                class="material-icons">delete</i></a>
                         {{-- <a href="{{route('delete_user',$view_projects->id)}}" class="btn btn-denger"></a> --}}
                     </td>
                 </tr>
@@ -180,7 +182,8 @@
 
 
     <!-- Modal add catagory-->
-    <div class="modal fade" id="modal-add_catagory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-add_catagory" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -207,7 +210,8 @@
     </div>
 
     <!-- Modal View catagory-->
-    <div class="modal fade" id="modal-delete_catagory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-delete_catagory" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -229,7 +233,9 @@
                                     {{-- <td>{{ $show_catagory->id }}</td> --}}
                                     <td>{{ $show_catagory->catagory_name }}</td>
                                     <td>
-                                        <a href="{{route('delete_category',$show_catagory->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                                        <a href="{{ route('delete_category', $show_catagory->id) }}"> <i
+                                                onclick="return confirm('Are you sure you want to delete this item?');"
+                                                class="material-icons">delete</i></a>
                                         {{-- {{route('product.delete',$product->id)}} --}}
                                     </td>
                                 </tr>
@@ -243,7 +249,8 @@
     </div>
 
     <!-- Modal Description-->
-    <div class="modal fade" id="modal-view_description" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-view_description" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -251,9 +258,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    {{-- @foreach ($collection as $item) --}}
+                    @foreach ($view_projects as $add_projects)
 
                         {{ $add_projects->project_description }}
-
+                    @endforeach
                 </div>
 
             </div>
@@ -282,10 +291,12 @@
                                 <tr>
                                     <td>{{ $show_tasks->id }}</td>
                                     {{-- <td></td> --}}
-                                    
+
                                     <td>{{ $show_tasks->task_name }}</td>
                                     <td>
-                                        <a href=""> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                                        <a href=""> <i
+                                                onclick="return confirm('Are you sure you want to delete this item?');"
+                                                class="material-icons">delete</i></a>
                                         {{-- {{route('product.delete',$product->id)}} --}}
                                     </td>
                                 </tr>
@@ -297,7 +308,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal Assigned User-->
     <div class="modal fade" id="modal-view_user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -324,7 +335,9 @@
                                     <td>{{ $user_list->task_name }}</td> --}}
                                     <td>{{ $show_tasks->name }}</td>
                                     <td>
-                                        <a href=""> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                                        <a href=""> <i
+                                                onclick="return confirm('Are you sure you want to delete this item?');"
+                                                class="material-icons">delete</i></a>
                                         {{-- {{route('product.delete',$product->id)}} --}}
                                     </td>
                                 </tr>

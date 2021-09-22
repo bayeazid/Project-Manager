@@ -13,6 +13,7 @@
         Add User
     </button>
 
+    
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-add-type">
         Add User Designation
@@ -53,10 +54,13 @@
                     <td>{{ $user_list->designation }}</td>
                     <td>{{ $user_list->created_at }}</td>
                     <td>
-                        <a href=""><i class='fas fa-user-edit' data-bs-toggle="modal" data-bs-target="#modal-delete"></i></a>
+                        <a href=""><i class='fas fa-user-edit' data-bs-toggle="modal"
+                                data-bs-target="#modal-delete"></i></a>
                     </td>
-                    <td>                        
-                        <a href="{{route('delete_user',$user_list->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
+                    <td>
+                        <a href="{{ route('delete_user', $user_list->id) }}"> <i
+                                onclick="return confirm('Are you sure you want to delete this item?');"
+                                class="material-icons">delete</i></a>
                         {{-- {{route('product.delete',$product->id)}} --}}
                     </td>
                 </tr>
@@ -132,16 +136,19 @@
                             <select name="designation" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
                                 <option selected>Select Designation</option>
-                                @foreach ($view_designations as $show_designation)                                
-                                <option>{{ $show_designation->user_designations}}</option>
+                                @foreach ($view_designations as $show_designation)
+                                    <option>{{ $show_designation->user_designations }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-success" value="submit">
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
+                {{-- <div class="modal-footer">
                     <input type="submit" class="btn btn-success" value="submit">
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -188,23 +195,25 @@
                         <thead>
                             <tr>
                                 <th scope="col">Type Name</th>
-                                {{-- <th scope="col">Edit</th>    --}}
+                                {{-- <th scope="col">Edit</th> --}}
                                 <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($view_designations as $show_designation)
-                            <tr>
-                                {{-- {{variable name -> field name from DB}}  --}}
-                                <td>{{ $show_designation->user_designations}}</td>
-                                {{-- <td>
+                                <tr>
+                                    {{-- {{variable name -> field name from DB}} --}}
+                                    <td>{{ $show_designation->user_designations }}</td>
+                                    {{-- <td>
                                     <a href=""><i class="material-icons" >edit</i></a>
                                 </td> --}}
-                                <td>
-                                    <a href="{{route('delete_designation',$show_designation->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>
-                                    {{-- {{route('product.delete',$product->id)}} --}}
-                                </td>
-                            </tr>
+                                    <td>
+                                        <a href="{{ route('delete_designation', $show_designation->id) }}"> <i
+                                                onclick="return confirm('Are you sure you want to delete this item?');"
+                                                class="material-icons">delete</i></a>
+                                        {{-- {{route('product.delete',$product->id)}} --}}
+                                    </td>
+                                </tr>
                             @endforeach()
                         </tbody>
                     </table>
@@ -214,7 +223,7 @@
         </div>
     </div>
 
-    
+
 
 
 

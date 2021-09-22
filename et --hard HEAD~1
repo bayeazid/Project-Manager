@@ -1,0 +1,174 @@
+[33mcommit ab199fe864a0ad0ad52d7082e44de31325205041[m
+Author: bayeazid <bayeazid.s@gmail.com>
+Date:   Sun Sep 19 16:05:34 2021 +0600
+
+    13th commit
+
+[1mdiff --git a/app/Http/Controllers/admin_pages/AdminProjectsController.php b/app/Http/Controllers/admin_pages/AdminProjectsController.php[m
+[1mindex 2862d18..7dfd809 100644[m
+[1m--- a/app/Http/Controllers/admin_pages/AdminProjectsController.php[m
+[1m+++ b/app/Http/Controllers/admin_pages/AdminProjectsController.php[m
+[36m@@ -18,6 +18,7 @@[m [mclass AdminProjectsController extends Controller[m
+     public function admin_projects(){[m
+         // $view_projects=create_project::paginate(5);[m
+         $view_projects = create_project::all();[m
+[32m+[m[32m        // $view_projects = create_project::where('project_name')->get();[m
+         // dd($add_projects->all());[m
+         //dd("ok");[m
+         $view_catagory = AddCatagory::all();[m
+[36m@@ -25,6 +26,7 @@[m [mclass AdminProjectsController extends Controller[m
+         //dd($view_catagory->all());[m
+         $view_tasks = AddTasks::all();[m
+         $view_user=create_user::all();[m
+[32m+[m[32m        // dd($view_project->all)[m
+         return view('backend.admin_pages.admin_projects',compact('view_projects','view_catagory','view_tasks','view_user'));[m
+     }[m
+ [m
+[36m@@ -43,6 +45,11 @@[m [mclass AdminProjectsController extends Controller[m
+        return redirect()->back();[m
+     }[m
+ [m
+[32m+[m[32m    public function delete_project($id){[m
+[32m+[m[32m        create_project::destroy($id);[m
+[32m+[m[32m        return redirect()->back();[m
+[32m+[m[32m    }[m
+[32m+[m
+     public function addcategory(Request $request)[m
+     {[m
+        // dd($request->all());[m
+[36m@@ -61,5 +68,8 @@[m [mclass AdminProjectsController extends Controller[m
+         }[m
+     }[m
+     [m
+[31m-    [m
+[32m+[m[32m    public function delete_category($id){[m
+[32m+[m[32m        AddCatagory::destroy($id);[m
+[32m+[m[32m        return redirect()->back();[m
+[32m+[m[32m    }[m
+ }[m
+[1mdiff --git a/app/Http/Controllers/admin_pages/AdminTasksController.php b/app/Http/Controllers/admin_pages/AdminTasksController.php[m
+[1mindex 9d589db..2351fbb 100644[m
+[1m--- a/app/Http/Controllers/admin_pages/AdminTasksController.php[m
+[1m+++ b/app/Http/Controllers/admin_pages/AdminTasksController.php[m
+[36m@@ -12,9 +12,10 @@[m [muse Illuminate\Http\Request;[m
+ class AdminTasksController extends Controller[m
+ {[m
+     public function admin_tasks(){[m
+[31m-        $view_tasks = AddTasks::all();[m
+[31m-        $show_taskname = TaskName::all();[m
+[32m+[m[32m        $view_tasks = AddTasks::all();[m[41m        [m
+[32m+[m[32m        $show_taskname = TaskName::all();[m[41m   [m
+         $view_projects = create_project::all();[m
+[32m+[m[32m        // $view_projects = create_project::where project_name = ;[m
+         $view_user=create_user::all();   	[m
+         // dd($view_tasks->all());[m
+         // dd($show_taskname->all());[m
+[36m@@ -33,6 +34,11 @@[m [mclass AdminTasksController extends Controller[m
+        return redirect()->back();[m
+     }[m
+ [m
+[32m+[m[32m    public function delete_tasks($id){[m
+[32m+[m[32m        AddTasks::destroy($id);[m
+[32m+[m[32m        return redirect()->back();[m
+[32m+[m[32m    }[m
+[32m+[m
+     public function add_tasks_name(Request $add_tasks_name ){[m
+         // dd($add_tasks->all());[m
+         // field name from db | method | field name from form[m
+[36m@@ -41,6 +47,11 @@[m [mclass AdminTasksController extends Controller[m
+           ]);[m
+        return redirect()->back();[m
+     }[m
+[32m+[m
+[32m+[m[32m    public function delete_tasks_name($id){[m
+[32m+[m[32m        TaskName::destroy($id);[m
+[32m+[m[32m        return redirect()->back();[m
+[32m+[m[32m    }[m
+ }[m
+ [m
+ [m
+[1mdiff --git a/app/Http/Controllers/admin_pages/AdminUsersController.php b/app/Http/Controllers/admin_pages/AdminUsersController.php[m
+[1mindex daefe22..d4f1438 100644[m
+[1m--- a/app/Http/Controllers/admin_pages/AdminUsersController.php[m
+[1m+++ b/app/Http/Controllers/admin_pages/AdminUsersController.php[m
+[36m@@ -7,6 +7,7 @@[m [muse App\Models\create_user;[m
+ use App\Models\UserDesignation;[m
+ use Illuminate\Http\Request;[m
+ [m
+[32m+[m
+ class AdminUsersController extends Controller[m
+ {[m
+     public function admin_users(){[m
+[36m@@ -30,11 +31,26 @@[m [mclass AdminUsersController extends Controller[m
+        return redirect()->back();[m
+     }[m
+ [m
+[32m+[m[32m     public function delete_users($id){[m
+[32m+[m[32m          // dd($id);[m[41m  [m
+[32m+[m[32m          create_user::destroy($id);[m
+[32m+[m[32m          return redirect()->back();[m
+[32m+[m[32m     }[m
+[32m+[m
+[32m+[m[41m     [m
+     public function add_designation(Request $add_designation){[m
+         // field name from db  || field name from form [m
+         UserDesignation::create([[m
+              'user_designations'=>$add_designation->user_designation,       [m
+[31m-        ]);[m
+[31m-        return redirect()->back();[m
+[32m+[m[32m        ]);[m[41m       [m
+[32m+[m[41m       [m
+[32m+[m[32m         return redirect()->back();[m
+[32m+[m
+[32m+[m[32m     }[m[41m  [m
+[32m+[m[41m     [m
+[32m+[m[32m     public function delete_designation($id){[m
+[32m+[m[32m          // dd($id);[m[41m  [m
+[32m+[m[32m          UserDesignation::destroy($id);[m
+[32m+[m[32m          return redirect()->back();[m
+      }[m
+ }[m
+[1mdiff --git a/app/Models/TaskName.php b/app/Models/TaskName.php[m
+[1mindex 50dc1af..bf6272a 100644[m
+[1m--- a/app/Models/TaskName.php[m
+[1m+++ b/app/Models/TaskName.php[m
+[36m@@ -10,4 +10,8 @@[m [mclass TaskName extends Model[m
+     use HasFactory;[m
+     protected $table="task_names";[m
+     protected $guarded=[];[m
+[32m+[m[32m    // public function project(){[m
+[32m+[m[32m    //     return $this->belongsTo(create_project::class, 'project_name','id');[m
+[32m+[m[41m        [m
+[32m+[m[32m    // }[m
+ }[m
+[1mdiff --git a/resources/views/backend/admin_pages/admin_projects.blade.php b/resources/views/backend/admin_pages/admin_projects.blade.php[m
+[1mindex 9d67300..0599d16 100644[m
+[1m--- a/resources/views/backend/admin_pages/admin_projects.blade.php[m
+[1m+++ b/resources/views/backend/admin_pages/admin_projects.blade.php[m
+[36m@@ -50,8 +50,8 @@[m
+                 <th scope="col">#</th>[m
+                 <th scope="col">Id</th>[m
+                 <th scope="col">Project Name</th>[m
+[31m-                <th scope="col">Project Catagory</th>[m
+[31m-                <th scope="col">Project Status</th>[m
+[32m+[m[32m                <th scope="col">Catagory</th>[m
+[32m+[m[32m                <th scope="col">Status</th>[m
+                 <th scope="col">Created at</th>[m
+                 <th scope="col">Description</th>[m
+                 <th scope="col">Tasks</th>               [m
+[36m@@ -92,7 +92,9 @@[m
+                         <a href=""><i class="material-icons">edit</i></a>                        [m
+                     </td>[m
+                     <td>[m
+[31m-                        <a href=""><i class="material-icons">delete</i></a>[m
+[32m+[m[32m                        {{-- <a href="{{route('delete_user',$view_projects->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a> --}}[m
+[32m+[m[32m                        <a href="{{route('delete_project',$add_projects->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>[m
+[32m+[m[32m                        {{-- <a href="{{route('delete_user',$view_projects->id)}}" class="btn btn-denger"></a> --}}[m
+                     </td>[m
+                 </tr>[m
+             @endforeach()[m
+[36m@@ -216,7 +218,7 @@[m
+                     <table class="table">[m
+                         <thead>[m
+                             <tr>[m
+[31m-                                <th scope="col">Catagory Id</

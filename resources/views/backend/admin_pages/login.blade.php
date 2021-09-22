@@ -20,20 +20,30 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
-      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <form action="{{route('login')}}" method="post" class="form-signin">
+      @csrf
+      {{-- <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> --}}
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <!-- <label for="inputEmail" class="sr-only">Email address</label> -->
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
+
+      
+      @if(session()->has('message'))
+                <span class="alert alert-danger">{{session()->get('message')}}</span>
+            @endif
+
+
+
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <!-- <label for="inputPassword" class="sr-only">Password</label> -->
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          {{-- <input type="checkbox" value="remember-me"> Remember me --}}
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+      <p class="mt-5 mb-3 text-muted">&copy; BS Studio 2021</p>
     </form>
   </body>
 </html>

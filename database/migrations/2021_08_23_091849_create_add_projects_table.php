@@ -19,9 +19,9 @@ class CreateAddProjectsTable extends Migration
             $table->string('project_catagory');            
             $table->string('project_description');
             $table->string('project_status');
-            $table->string('project_tasks');
-            $table->string('project_users');
-            $table->string('project_resources');
+            // $table->string('project_tasks');
+            // $table->string('project_users');
+            // $table->string('project_resources');
             $table->timestamps();
         });
     }
