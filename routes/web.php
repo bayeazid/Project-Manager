@@ -28,8 +28,6 @@ use App\Http\Controllers\user_pages\UserAssetsController;
 
 
 
-
-
 Route::get('/', [login::class, 'login'])->name('log');
 Route::get('/login/post', [login::class, 'loginPost'])->name('login');
 Route::get('/logout', [login::class, 'logout'])->name('logout');
