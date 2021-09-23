@@ -30,8 +30,9 @@ use App\Http\Controllers\user_pages\UserAssetsController;
 
 
 
-Route::get('/', [login::class, 'login']);
-Route::post('/login/post', [login::class, 'loginPost'])->name('login');
+Route::get('/', [login::class, 'login'])->name('log');
+//Route::post('/login/post', [login::class, 'loginPost'])->name('login');
+Route::get('/login/post', [login::class, 'loginPost'])->name('login');
 Route::get('/logout', [login::class, 'logout'])->name('logout');
 
 
@@ -44,7 +45,7 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
 
     //Frontend login logout
 
-    Route::get('/logout', [login::class, 'logout'])->name('logout');
+    
 
     //Admin page routs
     Route::get('/admin/home', [AdminHomeController::class, 'admin_home'])->name('admin_home');

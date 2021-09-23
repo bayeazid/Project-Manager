@@ -32,7 +32,7 @@ class login extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('logout');
+        return redirect()->route('log');
     }
 
     public function create_user()
