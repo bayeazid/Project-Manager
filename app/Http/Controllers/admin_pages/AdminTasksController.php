@@ -42,6 +42,10 @@ class AdminTasksController extends Controller
         return redirect()->back();
     }
 
+    public function edit_task($id){
+        return view('backend.admin_pages.admin_tasks_update');
+    }
+
     public function add_tasks_name(Request $add_tasks_name)
     {
         // dd($add_tasks->all());

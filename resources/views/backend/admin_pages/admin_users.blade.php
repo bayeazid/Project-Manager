@@ -54,7 +54,7 @@
                     <td>{{ $user_list->designation }}</td>
                     <td>{{ $user_list->created_at }}</td>
                     <td>
-                        <a href=""><i class='fas fa-user-edit' data-bs-toggle="modal"
+                        <a href="{{ route('edit_user', $user_list->id) }}"><i class='fas fa-user-edit' data-bs-toggle="modal"
                                 data-bs-target="#modal-delete"></i></a>
                     </td>
                     <td>

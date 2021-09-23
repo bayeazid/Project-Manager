@@ -74,7 +74,7 @@
                     <td>{{ $show_tasks->project_name }}</td>
                     <td>{{ $show_tasks->name }}</td>
                     <td>
-                        <a href=""><i class="material-icons">edit</i></a>
+                        <a href="{{route('edit_tasks',$show_tasks->id)}}"><i class="material-icons">edit</i></a>
                     </td>
                     <td>
                         <a href="{{route('delete_tasks',$show_tasks->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a>

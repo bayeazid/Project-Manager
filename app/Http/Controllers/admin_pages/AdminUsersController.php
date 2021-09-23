@@ -39,6 +39,12 @@ class AdminUsersController extends Controller
           return redirect()->back();
      }
 
+     public function edit_user($id){
+          $update_user=create_user::find($id);
+          return view('backend.admin_pages.admin_users_update',compact('update_user'));
+      }
+
+
 
      public function add_designation(Request $add_designation)
      {

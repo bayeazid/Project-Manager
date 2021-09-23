@@ -31,21 +31,16 @@ use App\Http\Controllers\user_pages\UserAssetsController;
 
 
 Route::get('/', [login::class, 'login'])->name('log');
-//Route::post('/login/post', [login::class, 'loginPost'])->name('login');
 Route::get('/login/post', [login::class, 'loginPost'])->name('login');
 Route::get('/logout', [login::class, 'logout'])->name('logout');
 
 
 Route::group([ 'middleware' => 'auth', 'role'], function () {
 
-
-
     Route::get('/admin', [AdminController::class, 'admin']);
     Route::get('/user', [UserController::class, 'user']);
+  
 
-    //Frontend login logout
-
-    
 
     //Admin page routs
     Route::get('/admin/home', [AdminHomeController::class, 'admin_home'])->name('admin_home');
@@ -55,6 +50,10 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
 
     Route::post('/admin/projects', [AdminProjectsController::class, 'add_projects'])->name('add_project');
     Route::get('/admin/delete_projects/{id}', [AdminProjectsController::class, 'delete_project'])->name('delete_project');
+    Route::get('/admin/edit_projects/{id}',[AdminProjectsController::class,'edit_project'])->name('edit_project');
+    Route::put('/admin/update_project/{id}',[AdminProjectsController::class,'update_project'])->name('update_project');
+    //for testing blade
+    // Route::get('/admin/update_project/',[AdminProjectsController::class,'update_project'])->name('update_project');
 
     Route::post('/add_category', [AdminProjectsController::class, 'addcategory'])->name('addcategory');
     Route::get('/delete_category/{id}', [AdminProjectsController::class, 'delete_category'])->name('delete_category');
@@ -65,6 +64,10 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
 
     Route::post('/admin/add_tasks', [AdminTasksController::class, 'add_tasks'])->name('add_tasks');
     Route::get('/admin/delete_tasks/{id}', [AdminTasksController::class, 'delete_tasks'])->name('delete_tasks');
+    Route::get('/admin/edit_task/{id}',[AdminTasksController::class,'edit_task'])->name('edit_tasks');
+    Route::put('/admin/update_task/{id}',[AdminTasksController::class,'update_task'])->name('update_tasks');
+    //for testing blade
+    // Route::get('/admin/update_task/',[AdminTasksController::class,'update_task'])->name('update_tasks');
 
     Route::post('/admin/add_tasks_name', [AdminTasksController::class, 'add_tasks_name'])->name('admin_tasks_name');
     Route::get('/admin/delete_tasks_name/{id}', [AdminTasksController::class, 'delete_tasks_name'])->name('delete_tasks_name');
@@ -84,6 +87,11 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
 
     Route::post('/admin/add_users', [AdminUsersController::class, 'add_users'])->name('add_user');
     Route::get('/admin/delete_user/{id}', [AdminUsersController::class, 'delete_users'])->name('delete_user');
+    Route::get('/admin/edit_user/{id}',[AdminUsersController::class,'edit_user'])->name ('edit_user');
+    Route::put('/admin/update_user/{id}',[AdminUsersController::class,'update_user'])->name ('update_user');
+    //for testing blade
+    // Route::get('/admin/update_user/',[AdminUsersController::class,'update_user'])->name ('update_user');
+
 
 
 

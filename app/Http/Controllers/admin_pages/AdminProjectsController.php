@@ -52,6 +52,16 @@ class AdminProjectsController extends Controller
         create_project::destroy($id);
         return redirect()->back();
     }
+    
+    // public function edit_project($id){
+    //     $view_projects = create_project::all();
+    //     return view('backend.admin_pages.edit_project',compact('view_projects'));
+    // }
+
+    public function edit_project($id){
+        $view_projects = create_project::all();
+        return view('backend.admin_pages.admin_projects_update');
+    }
 
 
     public function addcategory(Request $request)

@@ -89,7 +89,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href=""><i class="material-icons">edit</i></a>
+                        <a href="{{ route('edit_project', $add_projects->id) }}"><i class="material-icons">edit</i></a>
                     </td>
                     <td>
                         {{-- <a href="{{route('delete_user',$view_projects->id)}}"> <i onclick="return confirm('Are you sure you want to delete this item?');"  class="material-icons">delete</i></a> --}}
