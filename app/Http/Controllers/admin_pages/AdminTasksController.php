@@ -42,8 +42,31 @@ class AdminTasksController extends Controller
         return redirect()->back();
     }
 
+    public function update_tasks(Request $update_tasks, $id)
+    {
+        // dd($add_tasks->all());
+        
+        // dd($id);
+        // field name from db | method | field name from form
+        $update_task=AddTasks::find($id);
+        $update_task->update([
+            'task_name' => $update_tasks->task_name,
+            'task_status' => $update_tasks->task_status,
+            'project_name' => $update_tasks->project_name,
+            'name' => $update_tasks->name,
+        ]);
+        return redirect()->back();
+    }
+
     public function edit_task($id){
-        return view('backend.admin_pages.admin_tasks_update');
+        // dd($id);
+        $view_tasks = AddTasks::all();
+        $show_taskname = TaskName::find($id);
+        $view_projects = create_project::all();
+        $view_user = create_user::all();
+        // dd($show_taskname);
+        
+        return view('backend.admin_pages.admin_tasks_update',compact('view_tasks', 'show_taskname', 'view_projects', 'view_user'));
     }
 
     public function add_tasks_name(Request $add_tasks_name)

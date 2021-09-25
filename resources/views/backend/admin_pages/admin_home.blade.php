@@ -11,9 +11,9 @@
             <div class="line-top"></div>
             <div style="text-align: center">
 
-                <button type="button" class="btn btn1">Projects in Progress: 10</button>
-                <button type="button" class="btn btn1">Completed Projects: 10</button>
-                <button type="button" class="btn btn1">Queued Projects: 10</button>
+                <button type="button" class="btn btn1">Projects in Progress: {{$projects_count}}</button>
+                <button type="button" class="btn btn1">Completed Projects: {{$projects_count}}</button>
+                <button type="button" class="btn btn1">Queued Projects: {{$projects_count}}</button>
 
             </div>
             <div class="line-bottom"></div>
@@ -26,9 +26,9 @@
             <div class="line-top"></div>
             <div style="text-align: center">
 
-                <button type="button" class="btn btn1">Active Tasks: 10</button>
-                <button type="button" class="btn btn1">Completed Tasks: 10</button>
-                <button type="button" class="btn btn1">Queued tasks: 10</button>
+                <button type="button" class="btn btn1">Active Tasks: {{$tasks_count}}</button>
+                <button type="button" class="btn btn1">Completed Tasks: {{$tasks_count}}</button>
+                <button type="button" class="btn btn1">Queued tasks: {{$tasks_count}}</button>
 
             </div>
             <div class="line-bottom"></div>
@@ -41,9 +41,9 @@
             <div class="line-top"></div>
             <div style="text-align: center">
 
-                <button type="button" class="btn btn1">Total Users: 10</button>
-                <button type="button" class="btn btn1">Users in Projects: 10</button>
-                <button type="button" class="btn btn1">Users Under Tasks: 10</button>
+                <button type="button" class="btn btn1">Total Users: {{$user_count}}</button>
+                <button type="button" class="btn btn1">Users in Projects: {{$user_count}}</button>
+                <button type="button" class="btn btn1">Users Under Tasks: {{$user_count}}</button>
 
             </div>
             <div class="line-bottom"></div>

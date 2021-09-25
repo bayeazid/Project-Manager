@@ -25,6 +25,7 @@ class AdminProjectsController extends Controller
         $view_catagory = AddCatagory::all();
         // $view_catagory = AddCategory2::all();
         //dd($view_catagory->all());
+        // $view_tasks = AddTasks::find($id);
         $view_tasks = AddTasks::all();
         $view_user = create_user::all();
         // dd($view_project->all)
@@ -59,8 +60,30 @@ class AdminProjectsController extends Controller
     // }
 
     public function edit_project($id){
-        $view_projects = create_project::all();
-        return view('backend.admin_pages.admin_projects_update');
+        // $view_projects = create_project::all();
+        $view_projects = create_project::find($id);
+        // dd($id);
+        // dd($view_projects);
+        $view_catagory = AddCatagory::all();
+        $view_tasks = AddTasks::all();
+        return view('backend.admin_pages.admin_projects_update',compact('view_projects', 'view_catagory', 'view_tasks'));
+    }
+
+    public function update_project(Request $update_projects, $id)
+    {
+
+        // field name from db | method | field name from form
+        $update_project=create_project::find($id);
+        $update_project->update([
+            'project_name' => $update_projects->project_name,
+            'project_catagory' => $update_projects->project_catagory,
+            'project_description' => $update_projects->project_description,
+            'project_status' => $update_projects->project_status,
+            // 'project_tasks' => $add_projects->project_tasks,
+            // 'project_users' => $add_projects->project_users,
+            // 'project_resources' => $add_projects->project_resources,
+        ]);
+        return redirect()->route('add_project');
     }
 
 

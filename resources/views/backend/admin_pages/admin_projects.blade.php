@@ -138,7 +138,7 @@
                     <form action="{{ route('add_project') }}" method="post">
                         @csrf
                         <div class="mb-1">
-                            <label for="" class="form-label">Project Name</label>
+                            <label for=""  class="form-label">Project Name</label>
                             <input name="project_name" type="text" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
@@ -283,7 +283,7 @@
                             <tr>
                                 <th scope="col">Task Id</th>
                                 <th scope="col">Task Name</th>
-                                <th scope="col">Action</th>
+                                {{-- <th scope="col">Action</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -293,12 +293,12 @@
                                     {{-- <td></td> --}}
 
                                     <td>{{ $show_tasks->task_name }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <a href=""> <i
                                                 onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="material-icons">delete</i></a>
-                                        {{-- {{route('product.delete',$product->id)}} --}}
-                                    </td>
+                                        
+                                    </td> --}}
                                 </tr>
                             @endforeach()
                         </tbody>

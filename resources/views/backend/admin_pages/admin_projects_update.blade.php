@@ -2,49 +2,47 @@
 
 @section('content')
     <h1>
-        <p class="text-center" style="padding-top: 50px;">Update Project
+        <p class="text-center" style="padding-top: 50px;">Edit Project
     </h1>
 
+    <form action="{{ route('update_project', $view_projects->id) }}" method="post">
+        @csrf
+        @method('put')
+        <div class="mb-1">
+            <label class="form-label">Project Name</label>
+            <input value="{{ $view_projects->project_name }}" name="project_name" type="text" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
 
-    <label for="exampleFormControlTextarea1">Old Project Name</label>
-    <div class="form-group">
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="New Project Name">
-    </div>
+        <div class="mb-1">
+            <label value="" class="form-label">Previous Catagory: @php echo($view_projects->project_catagory) @endphp</label>
+            <select name="project_catagory" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Open this select menu</option>
+                @foreach ($view_catagory as $show_catagory)
+                    <option>{{ $show_catagory->catagory_name }}</option>
+                @endforeach
+            </select>
+        </div>
 
-    <label for="exampleFormControlTextarea1">Old Catagory Name</label>
-    <select name="designation" class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected>Option 0</option>
-        <option>Option 1</option>
-        <option>Option 1</option>
-        <option>Option 1</option>
-    </select>
+        <div class="mb-1">
+            <label value="" class="form-label">Project Description</label>
+            <input value="{{ $view_projects->project_description }}" name="project_description" type="text"
+                class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
 
-    <label for="exampleFormControlTextarea1">Current Status</label>
-    <select name="designation" class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected>Option 0</option>
-        <option>Option 1</option>
-        <option>Option 1</option>
-        <option>Option 1</option>
-    </select>
+        <div class="mb-1">
+            <label value="" class="form-label">Previous Status: @php echo($view_projects->project_status) @endphp </label>
+            <select name="project_status" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option>Queud</option>
+                <option>Prograssing</option>
+                <option>Completed</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <input  type="submit" class="btn btn-success" value="submit">
+        </div>
+    </form>
 
-    <label for="exampleFormControlTextarea1">Previous Description:</label>
-    <div></div>
-    {{-- <label for="exampleFormControlTextarea1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin orci a magna dignissim</label> --}}
-    <textarea class="form-control" id="exampleFormControlTextarea1" readonly
-        rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin orci a magna dignissim</textarea>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-        placeholder="Enter New Descriotion"></textarea>
-
-    <label for="exampleFormControlTextarea1">Tasks</label>
-    <select name="designation" class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected>Option 0</option>
-        <option>Option 1</option>
-        <option>Option 1</option>
-        <option>Option 1</option>
-    </select>
-
-    
-    <a class="btn btn-success" href=""> Update</a>
 
 
 

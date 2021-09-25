@@ -29,11 +29,11 @@
               Project Resourses
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{route ('admin_assets') }}">
               Assets Library 
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin_notification') }}">
               Notification Manager

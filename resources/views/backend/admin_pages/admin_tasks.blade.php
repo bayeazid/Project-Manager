@@ -122,10 +122,10 @@
                         @csrf
                         <div class="mb-1">
                             <label for="" class="form-label">Task Name</label>
-                            <input name="task_name" type="text" class="form-control", placeholder="Type Name or Select from Dropwown">
+                            
                                 <select name="task_name" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
-                                <option selected>Dropdown</option>
+                                {{-- <option selected>Dropdown</option> --}}
                                 {{-- @foreach ($comes from controller as $new variable)         --}}
                                 @foreach ($show_taskname as $taskname)
                                     <tr>
