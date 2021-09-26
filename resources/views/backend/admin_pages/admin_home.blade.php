@@ -57,10 +57,10 @@
             box-shadow: inset -5px -5px 0 0 rgba(0, 0, 0, .25);
             font-weight: 500;
             border-radius: 10px;
-            width: 400px;
+            width: 350px;
             height: 60px;
             padding: 5px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-left: 20px;
             color: #333;
             color: rgb(124, 124, 124)

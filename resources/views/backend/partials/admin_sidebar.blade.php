@@ -34,11 +34,11 @@
               Assets Library 
             </a>
           </li> --}}
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('admin_notification') }}">
               Notification Manager
             </a>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </nav>

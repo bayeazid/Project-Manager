@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\add_catagory;
 use App\Models\add_catagory2;
 use App\Models\AddCatagory;
-// use App\Models\AddCategory2;
 use App\Models\AddCategory;
 use App\Models\create_project;
 use App\Models\AddTasks;
@@ -70,8 +69,7 @@ class AdminProjectsController extends Controller
     }
 
     public function update_project(Request $update_projects, $id)
-    {
-
+    {        
         // field name from db | method | field name from form
         $update_project=create_project::find($id);
         $update_project->update([

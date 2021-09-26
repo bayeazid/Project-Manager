@@ -61,7 +61,7 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
     Route::get('/admin/delete_type/{id}', [AdminTasksController::class, 'delete_type'])->name('delete_type');
 
     Route::post('/admin/add_tasks', [AdminTasksController::class, 'add_tasks'])->name('add_tasks');
-    Route::get('/admin/delete_tasks/{id}', [AdminTasksController::class, 'delete_tasks'])->name('delete_tasks');
+    Route::get('/admin/delete_tasks/{id}', [AdminTasksController::class, 'delete_task'])->name('delete_tasks');
     Route::get('/admin/edit_task/{id}',[AdminTasksController::class,'edit_task'])->name('edit_tasks');
     Route::put('/admin/update_task/{id}',[AdminTasksController::class,'update_task'])->name('update_tasks');
     //for testing blade

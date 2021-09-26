@@ -5,6 +5,7 @@
         <p class="text-center" style="padding-top: 50px;">Edit Project
     </h1>
 
+    <div class="center">
     <form action="{{ route('update_project', $view_projects->id) }}" method="post">
         @csrf
         @method('put')
@@ -17,7 +18,7 @@
         <div class="mb-1">
             <label value="" class="form-label">Previous Catagory: @php echo($view_projects->project_catagory) @endphp</label>
             <select name="project_catagory" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option selected>Open this select menu</option>
+                {{-- <option selected>Open this select menu</option> --}}
                 @foreach ($view_catagory as $show_catagory)
                     <option>{{ $show_catagory->catagory_name }}</option>
                 @endforeach
@@ -42,38 +43,30 @@
             <input  type="submit" class="btn btn-success" value="submit">
         </div>
     </form>
+</div>
 
 
 
 
 
 
-
-
-    {{-- <tbody>
-            @foreach ($view_projects as $add_projects)
-                <tr>
-                    <td>{{ $add_projects->project_name }}</td>
-                    <td>{{ $add_projects->project_catagory }}</td>
-                    <td>{{ $add_projects->project_status }}</td>
-                    <td>{{ $add_projects->project_description }}</td>
-                    <td>
-                        <label for="exampleFormControlTextarea1">New Description</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </td>
-                    <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
-                        data-bs-target="#modal-view_tasks">
-                        View
-                    </button></td>
-                    <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
-                        data-bs-target="#modal-view_user">
-                        View
-                    </button></td>                                       
-                    
-                </tr>
-            @endforeach()
-        </tbody>
-    </table> --}}
+    <style>
+        .center{
+            margin-right: 100px;
+            margin-left: 100px;
+            padding-right: 100px;
+            padding-left: 100px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: aliceblue;
+        }
+        .btn-success{
+            font-size: 1.2rem;
+            box-sizing: border-box;
+            
+        }
+    
+    </style>
 
 
 
