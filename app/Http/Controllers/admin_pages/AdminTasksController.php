@@ -68,7 +68,7 @@ class AdminTasksController extends Controller
             'project_name' => $update_tasks->project_name,
             'name' => $update_tasks->name,
         ]);
-        return redirect()->route('add_tasks');
+        return redirect()->route('admin_tasks');
         
         
     }

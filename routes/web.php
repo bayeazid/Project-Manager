@@ -57,6 +57,8 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
     Route::get('/delete_category/{id}', [AdminProjectsController::class, 'delete_category'])->name('delete_category');
 
     //tasks
+    Route::get('/admin/tasks', [AdminTasksController::class, 'admin_tasks'])->name('admin_tasks');
+    
     Route::post('/admin/add_type', [AdminTasksController::class, 'add_type'])->name('add_type');
     Route::get('/admin/delete_type/{id}', [AdminTasksController::class, 'delete_type'])->name('delete_type');
 
@@ -70,7 +72,7 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
     Route::post('/admin/add_tasks_name', [AdminTasksController::class, 'add_tasks_name'])->name('admin_tasks_name');
     Route::get('/admin/delete_tasks_name/{id}', [AdminTasksController::class, 'delete_tasks_name'])->name('delete_tasks_name');
 
-    Route::get('/admin/tasks', [AdminTasksController::class, 'admin_tasks'])->name('admin_tasks');
+    
     Route::get('/admin/notification', [AdminNotificationController::class, 'admin_notification'])->name('admin_notification');
 
 

@@ -81,7 +81,7 @@ class AdminProjectsController extends Controller
             // 'project_users' => $add_projects->project_users,
             // 'project_resources' => $add_projects->project_resources,
         ]);
-        return redirect()->route('add_project');
+        return redirect()->route('admin_projects');
     }
 
 
