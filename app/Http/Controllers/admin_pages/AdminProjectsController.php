@@ -31,6 +31,18 @@ class AdminProjectsController extends Controller
         return view('backend.admin_pages.admin_projects', compact('view_projects', 'view_catagory', 'view_tasks', 'view_user'));
     }
 
+    public function projects_details($id)
+    {
+        $view_projects = create_project::find($id);
+        // $view_projects = create_project::all();
+        // dd($id);
+        $view_catagory = AddCatagory::all();
+        $view_tasks = AddTasks::all();
+        $view_user = create_user::all();
+        // dd($view_project->all)
+        return view('backend.admin_pages.admin_projects_details', compact('view_projects', 'view_catagory', 'view_tasks', 'view_user'));
+    }
+
     public function add_projects(Request $add_projects)
     {
 

@@ -47,6 +47,7 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
     Route::get('/admin/projects', [AdminProjectsController::class, 'admin_projects'])->name('admin_projects');
 
     Route::post('/admin/projects', [AdminProjectsController::class, 'add_projects'])->name('add_project');
+    Route::get('/admin/projects/{id}', [AdminProjectsController::class, 'projects_details'])->name('projects_details');
     Route::get('/admin/delete_projects/{id}', [AdminProjectsController::class, 'delete_project'])->name('delete_project');
     Route::get('/admin/edit_projects/{id}',[AdminProjectsController::class,'edit_project'])->name('edit_project');
     Route::put('/admin/update_project/{id}',[AdminProjectsController::class,'update_project'])->name('update_project');

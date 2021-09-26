@@ -53,9 +53,10 @@
                 <th scope="col">Catagory</th>
                 <th scope="col">Status</th>
                 <th scope="col">Created at</th>
-                <th scope="col">Description</th>
+                <th scope="col">Details</th>
+                {{-- <th scope="col">Description</th>
                 <th scope="col">Tasks</th>
-                <th scope="col">Users</th>
+                <th scope="col">Users</th> --}}
                 <th scope="col">Resources</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -70,8 +71,14 @@
                     <td>{{ $add_projects->project_catagory }}</td>
                     <td>{{ $add_projects->project_status }}</td>
                     <td>{{ $add_projects->created_at }}</td>
+                    <td>
+                        {{-- <a class="btn btn-light" href="{{ route('add_project_id') }}"> --}}
+                            <a class="btn btn-light" href="{{ route('projects_details', $add_projects->id) }}">
+                            View
+                        </a>
+                    </td>
                     {{-- <td>{{ $add_projects->project_description }}</td> --}}
-                    <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
+                    {{-- <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
                             data-bs-target="#modal-view_description">
                             View
                         </button></td>
@@ -82,9 +89,9 @@
                     <td><button type="button" class="btn btn-light" data-bs-toggle="modal"
                             data-bs-target="#modal-view_user">
                             View
-                        </button></td>
+                        </button></td> --}}
                     <td>
-                        <a class="btn btn-light" href="{{ route('admin_resources') }}">
+                        <a class="btn btn-light" href="{{ route('edit_project', $add_projects->id) }}">
                             View
                         </a>
                     </td>
