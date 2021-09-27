@@ -85,7 +85,7 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
 
     Route::get('/admin/assets', [AdminAssetsController::class, 'admin_assets'])->name('admin_assets');
     Route::get('/admin/resources', [AdminResourcesController::class, 'admin_resources'])->name('admin_resources');
-    Route::get('/admin/resources/{id}', [AdminResourcesController::class, 'admin_resources'])->name('admin_resources_id');
+    Route::get('/admin/resources/{id}', [AdminResourcesController::class, 'admin_resources_id'])->name('admin_resources_id');
 
     Route::post('/admin/add_users', [AdminUsersController::class, 'add_users'])->name('add_user');
     Route::get('/admin/delete_user/{id}', [AdminUsersController::class, 'delete_users'])->name('delete_user');

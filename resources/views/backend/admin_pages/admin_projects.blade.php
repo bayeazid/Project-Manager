@@ -91,7 +91,7 @@
                             View
                         </button></td> --}}
                     <td>
-                        <a class="btn btn-light" href="{{ route('edit_project', $add_projects->id) }}">
+                        <a class="btn btn-light" href="{{ route('admin_resources_id', $add_projects->id) }}">
                             View
                         </a>
                     </td>
