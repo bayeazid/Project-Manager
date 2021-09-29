@@ -17,4 +17,9 @@ class AdminResourcesController extends Controller
         $view_projects = create_project::find($id);
         return view('backend.admin_pages.admin_resourses_id',compact('view_projects'));
     }
+    
+    // public function file_upload($id){
+    //     $view_projects = create_project::find($id);
+    //     return view('backend.admin_pages.admin_resourses_id',compact('view_projects'));
+    // }
 }

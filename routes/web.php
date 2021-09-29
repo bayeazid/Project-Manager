@@ -51,8 +51,9 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
     Route::get('/admin/delete_projects/{id}', [AdminProjectsController::class, 'delete_project'])->name('delete_project');
     Route::get('/admin/edit_projects/{id}',[AdminProjectsController::class,'edit_project'])->name('edit_project');
     Route::put('/admin/update_project/{id}',[AdminProjectsController::class,'update_project'])->name('update_project');
-    //for testing blade
-    // Route::get('/admin/update_project/',[AdminProjectsController::class,'update_project'])->name('update_project');
+
+    Route::get('/admin/new_projects', [AdminProjectsController::class, 'new_projects'])->name('new_projects');
+ 
 
     Route::post('/add_category', [AdminProjectsController::class, 'addcategory'])->name('addcategory');
     Route::get('/delete_category/{id}', [AdminProjectsController::class, 'delete_category'])->name('delete_category');
@@ -67,8 +68,9 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
     Route::get('/admin/delete_tasks/{id}', [AdminTasksController::class, 'delete_task'])->name('delete_tasks');
     Route::get('/admin/edit_task/{id}',[AdminTasksController::class,'edit_task'])->name('edit_tasks');
     Route::put('/admin/update_task/{id}',[AdminTasksController::class,'update_task'])->name('update_tasks');
-    //for testing blade
-    // Route::get('/admin/update_task/',[AdminTasksController::class,'update_task'])->name('update_tasks');
+ 
+
+    Route::get('/admin/new_tasks', [AdminTasksController::class, 'new_tasks'])->name('new_tasks');
 
     Route::post('/admin/add_tasks_name', [AdminTasksController::class, 'add_tasks_name'])->name('admin_tasks_name');
     Route::get('/admin/delete_tasks_name/{id}', [AdminTasksController::class, 'delete_tasks_name'])->name('delete_tasks_name');
@@ -82,19 +84,19 @@ Route::group([ 'middleware' => 'auth', 'role'], function () {
     Route::get('/admin/delete_designation/{id}', [AdminUsersController::class, 'delete_designation'])->name('delete_designation');
 
     Route::get('/admin/users', [AdminUsersController::class, 'admin_users'])->name('admin_users');
-
-    Route::get('/admin/assets', [AdminAssetsController::class, 'admin_assets'])->name('admin_assets');
-    Route::get('/admin/resources', [AdminResourcesController::class, 'admin_resources'])->name('admin_resources');
-    Route::get('/admin/resources/{id}', [AdminResourcesController::class, 'admin_resources_id'])->name('admin_resources_id');
-
+  
     Route::post('/admin/add_users', [AdminUsersController::class, 'add_users'])->name('add_user');
     Route::get('/admin/delete_user/{id}', [AdminUsersController::class, 'delete_users'])->name('delete_user');
     Route::get('/admin/edit_user/{id}',[AdminUsersController::class,'edit_user'])->name ('edit_user');
     Route::put('/admin/update_user/{id}',[AdminUsersController::class,'update_user'])->name ('update_user');
-    //for testing blade
-    // Route::get('/admin/update_user/',[AdminUsersController::class,'update_user'])->name ('update_user');
+    
 
+    Route::get('/admin/new_users', [AdminUsersController::class, 'new_users'])->name('new_users');
 
+    Route::get('/admin/assets', [AdminAssetsController::class, 'admin_assets'])->name('admin_assets');
+    Route::get('/admin/resources', [AdminResourcesController::class, 'admin_resources'])->name('admin_resources');
+    Route::get('/admin/resources/{id}', [AdminResourcesController::class, 'admin_resources_id'])->name('admin_resources_id');
+   
 
 
 

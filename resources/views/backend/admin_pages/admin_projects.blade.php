@@ -10,9 +10,9 @@
     </div>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-create">
-        Create Projects
-    </button>
+    <a class="btn btn-light" href="{{ route('new_projects') }}">
+        Create Tasks
+      </a>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-add_catagory">

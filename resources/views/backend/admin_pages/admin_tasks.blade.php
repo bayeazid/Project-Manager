@@ -8,10 +8,11 @@
         </h2>
     </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-create">
+
+
+    <a class="btn btn-light" href="{{ route('new_tasks') }}">
         Create Tasks
-    </button>
+      </a>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-add-type">
@@ -70,7 +71,7 @@
                     <td>{{ $show_tasks->task_name }}</td>
                     <td>{{ $show_tasks->task_status }}</td>
                     <td>{{ $show_tasks->created_at }}</td>
-                    <td>{{ $show_tasks->project_name }}</td>
+                    <td>{{ $show_tasks->project_id }}</td>
                     <td>{{ $show_tasks->project_name }}</td>
                     <td>{{ $show_tasks->name }}</td>
                     <td>
@@ -136,16 +137,7 @@
                             </select>
                         </div>
 
-                        {{-- <div class="mb-1">
-                            <label for="" class="form-label">Select Project</label>
-                            <select name="project_name" class="form-select form-select-sm"
-                                aria-label=".form-select-sm example">
-                                <option selected>Select from Dropdown</option>
-                                @foreach ($view_projects as $add_projects)
-                                    <option >{{ $add_projects->project_name }}</option>
-                                @endforeach
-                            </select>
-                        </div> --}}
+                       
 
                         <div class="mb-1">
                             <label for="" class="form-label">Select Project</label>

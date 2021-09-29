@@ -8,10 +8,9 @@
         </h2>
     </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-add-user">
+    <a class="btn btn-light" href="{{ route('new_users') }}">
         Add User
-    </button>
+      </a>
 
     
     <!-- Button trigger modal -->

@@ -28,7 +28,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Task Id</th>
                                 <th scope="col">Task Name</th>
     
                             </tr>
@@ -36,8 +35,7 @@
                         <tbody>
                             @foreach ($view_tasks as $show_tasks)
                                 <tr>
-                                    <td>{{ $show_tasks->id }}</td>
-                                    <td>{{ $show_tasks->task_name }}</td>
+                                    <td>{{ $show_tasks->task_name}}</td>
                                 </tr>
                             @endforeach()
                         </tbody>

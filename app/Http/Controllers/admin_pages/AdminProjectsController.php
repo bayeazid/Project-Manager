@@ -35,12 +35,14 @@ class AdminProjectsController extends Controller
     {
         $view_projects = create_project::find($id);
         // $view_projects = create_project::all();
-        // dd($id);
+         //dd($view_projects);
         $view_catagory = AddCatagory::all();
-        $view_tasks = AddTasks::all();
+        
+        $view_tasks=AddTasks::where('project_id',$id)->get();
+        //dd($view_tasks);
         $view_user = create_user::all();
         // dd($view_project->all)
-        return view('backend.admin_pages.admin_projects_details', compact('view_projects', 'view_catagory', 'view_tasks', 'view_user'));
+        return view('backend.admin_pages.admin_projects_details', compact('view_projects', 'view_catagory', 'view_tasks', 'view_user','id'));
     }
 
     public function add_projects(Request $add_projects)
@@ -56,7 +58,24 @@ class AdminProjectsController extends Controller
             // 'project_users' => $add_projects->project_users,
             // 'project_resources' => $add_projects->project_resources,
         ]);
-        return redirect()->back();
+        return redirect()->route('admin_projects');
+    }
+
+    public function new_projects()
+    {
+        // $view_projects=create_project::paginate(5);
+        $view_projects = create_project::all();
+        // $view_projects = create_project::where('project_name')->get();
+        // dd($add_projects->all());
+        //dd("ok");
+        $view_catagory = AddCatagory::all();
+        // $view_catagory = AddCategory2::all();
+        //dd($view_catagory->all());
+        // $view_tasks = AddTasks::find($id);
+        $view_tasks = AddTasks::all();
+        $view_user = create_user::all();
+        // dd($view_project->all)
+        return view('backend.admin_pages.new_projects', compact('view_projects', 'view_catagory', 'view_tasks', 'view_user'));
     }
 
     public function delete_project($id)
