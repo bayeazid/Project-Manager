@@ -13,6 +13,7 @@ class AdminHomeController extends Controller
     public function admin_home(){
         $projects_count = create_project::all()->count();
         $tasks_count = AddTasks::all()->count();
+        $project_user = AddTasks::all()->count();
         $user_count = create_user::all()->count();
         return view('backend.admin_pages.admin_home',compact('projects_count','tasks_count','user_count'));
     }

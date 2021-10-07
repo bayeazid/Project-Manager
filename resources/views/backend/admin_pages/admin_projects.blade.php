@@ -11,7 +11,7 @@
 
     <!-- Button trigger modal -->
     <a class="btn btn-light" href="{{ route('new_projects') }}">
-        Create Tasks
+        Create Project
       </a>
 
     <!-- Button trigger modal -->
@@ -53,11 +53,12 @@
                 <th scope="col">Catagory</th>
                 <th scope="col">Status</th>
                 <th scope="col">Created at</th>
+                <th scope="col">Completed at</th>
                 <th scope="col">Details</th>
                 {{-- <th scope="col">Description</th>
                 <th scope="col">Tasks</th>
                 <th scope="col">Users</th> --}}
-                <th scope="col">Resources</th>
+                {{-- <th scope="col">Resources</th> --}}
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -71,6 +72,16 @@
                     <td>{{ $add_projects->project_catagory }}</td>
                     <td>{{ $add_projects->project_status }}</td>
                     <td>{{ $add_projects->created_at }}</td>
+
+                    @if($add_projects->project_status =='Completed')
+                        
+                            <td>{{ $add_projects->updated_at }}</td>
+                        
+                        @else
+                        <td>Not Completed</td>
+                        
+                    @endif
+                    {{-- <td>{{ $add_projects->updated_at }}</td> --}}
                     <td>
                         {{-- <a class="btn btn-light" href="{{ route('add_project_id') }}"> --}}
                             <a class="btn btn-light" href="{{ route('projects_details', $add_projects->id) }}">
@@ -90,11 +101,11 @@
                             data-bs-target="#modal-view_user">
                             View
                         </button></td> --}}
-                    <td>
+                    {{-- <td>
                         <a class="btn btn-light" href="{{ route('admin_resources_id', $add_projects->id) }}">
                             View
                         </a>
-                    </td>
+                    </td> --}}
                     <td>
                         <a href="{{ route('edit_project', $add_projects->id) }}"><i class="material-icons">edit</i></a>
                     </td>
@@ -111,24 +122,7 @@
     </table>
 
     <!-- pagination -->
-    <nav aria-label="...">
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active">
-                <span class="page-link">
-                    2
-                    <span class="sr-only"></span>
-                </span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+    {{$view_projects->links('pagination::bootstrap-4')}}
 
 
 

@@ -14,5 +14,9 @@ class AddTasks extends Model
     public function task(){
         return $this->belongsTo(create_project::class,'task_id','id');
     }
+    // public function projectname(){
+    //     //f=p AddTasks-create_project
+    //     return $this->belongsTo(create_project::class,'project_name','id');
+    // }
     
 }

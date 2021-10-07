@@ -17,7 +17,7 @@ class AdminProjectsController extends Controller
     public function admin_projects()
     {
         // $view_projects=create_project::paginate(5);
-        $view_projects = create_project::all();
+        $view_projects = create_project::paginate(10);
         // $view_projects = create_project::where('project_name')->get();
         // dd($add_projects->all());
         //dd("ok");

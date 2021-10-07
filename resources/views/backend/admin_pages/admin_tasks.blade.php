@@ -57,7 +57,7 @@
                 <th scope="col">Task Status</th>
                 <th scope="col">Created at</th>
                 <th scope="col">Project ID</th>
-                <th scope="col">Project Name</th>
+                {{-- <th scope="col">Project Name</th> --}}
                 <th scope="col">Assigned User</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -72,7 +72,7 @@
                     <td>{{ $show_tasks->task_status }}</td>
                     <td>{{ $show_tasks->created_at }}</td>
                     <td>{{ $show_tasks->project_id }}</td>
-                    <td>{{ $show_tasks->project_name }}</td>
+                    {{-- <td>{{ $show_tasks->projectname->project_name }}</td> --}}
                     <td>{{ $show_tasks->name }}</td>
                     <td>
                         <a href="{{route('edit_tasks',$show_tasks->id)}}"><i class="material-icons">edit</i></a>
@@ -88,24 +88,7 @@
     </table>
 
     <!-- pagination -->
-    <nav aria-label="...">
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active">
-                <span class="page-link">
-                    2
-                    <span class="sr-only"></span>
-                </span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
+    {{$view_tasks->links('pagination::bootstrap-4')}}
 
 
 

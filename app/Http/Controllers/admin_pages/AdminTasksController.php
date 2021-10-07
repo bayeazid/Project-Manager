@@ -13,7 +13,7 @@ class AdminTasksController extends Controller
 {
     public function admin_tasks()
     {
-        $view_tasks = AddTasks::all();
+        $view_tasks = AddTasks::paginate(10);
         $show_taskname = TaskName::all();
         $view_projects = create_project::all();
         // $view_projects = create_project::where project_name = ;
@@ -34,7 +34,7 @@ class AdminTasksController extends Controller
             'task_status' => $add_tasks->task_status,
             'name' => $add_tasks->name,
         ]);
-        return redirect()->back();
+        return redirect()->route('admin_tasks');
     }
 
     public function new_tasks()

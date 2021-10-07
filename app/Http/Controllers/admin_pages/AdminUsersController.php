@@ -12,8 +12,8 @@ class AdminUsersController extends Controller
 {
      public function admin_users()
      {
-          // $view_user=create_user::paginate(5);
-          $view_user = create_user::all();
+          $view_user=create_user::paginate(5);
+          // $view_user = create_user::all();
           $view_designations = UserDesignation::all();
           return view('backend.admin_pages.admin_users', compact('view_user', 'view_designations'));
      }
@@ -29,7 +29,8 @@ class AdminUsersController extends Controller
                'user_type' => $add_users->user_type,
                'designation' => $add_users->designation,
           ]);
-          return redirect()->back();
+          // return redirect()->back();
+          return redirect()->route('admin_users');
      }
 
      public function new_users()
