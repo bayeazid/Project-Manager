@@ -7,7 +7,7 @@
         @csrf
         <div class="mb-1">
             <label for="" class="form-label">Name</label>
-            <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="name" type="text" class="form-control"  >
         </div>
 
         <div class="mb-1">
@@ -17,7 +17,7 @@
 
         <div class="mb-1">
             <label for="" class="form-label">Phone</label>
-            <input name="phone" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="phone" type="number" class="form-control" id="exampleInputEmail1" >
         </div>
 
         <div class="mb-1">
@@ -28,7 +28,7 @@
         <div class="mb-1">
             <label for="" class="form-label">User Type</label>
             <select name="user_type" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option>User</option>
+                <option selected>User</option>
                 <option>Admin</option>
             </select>
         </div>

@@ -12,7 +12,7 @@
         Add User
       </a>
 
-    
+
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modal-add-type">
         Add User Designation
@@ -49,8 +49,9 @@
                     <td>{{ $user_list->email }}</td>
                     <td>{{ $user_list->phone }}</td>
                     <!-- <td>{{ $user_list->password }}</td> -->
-                    <td>{{ $user_list->user_type }}</td>
+
                     <td>{{ $user_list->designation }}</td>
+                    <td>{{ $user_list->role }}</td>
                     <td>{{ $user_list->created_at }}</td>
                     <td>
                         <a href="{{ route('edit_user', $user_list->id) }}"><i class='fas fa-user-edit' data-bs-toggle="modal"
