@@ -35,13 +35,13 @@ Route::get('/logout', [login::class, 'logout'])->name('logout');
 
 Route::group([ 'middleware' => 'auth', 'role'], function () {
 
-    Route::get('/admin', [AdminController::class, 'admin']);
+    // Route::get('/admin', [AdminController::class, 'admin']);
     Route::get('/user', [UserController::class, 'user']);
 
 
 
     //Admin page routs
-    Route::get('/admin/home', [AdminHomeController::class, 'admin_home'])->name('admin_home');
+    Route::get('/home', [AdminHomeController::class, 'admin_home'])->name('admin_home');
 
     //projects
     Route::get('/admin/projects', [AdminProjectsController::class, 'admin_projects'])->name('admin_projects');

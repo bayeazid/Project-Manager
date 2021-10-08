@@ -19,9 +19,14 @@ class login extends Controller
         $credentials = $request->except('_token');
         // dd($credentials);
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
 
-            return redirect()->intended('admin');           
+
+            if(auth()->user()->role=='admin'){
+                return redirect()->route('home');
+            }
+            // $request->session()->regenerate();
+
+            // return redirect()->intended('home');           
 
         }
         return redirect()->back()->with('message', 'invalid user info.');
@@ -35,10 +40,10 @@ class login extends Controller
         return redirect()->route('log');
     }
 
-    public function create_user()
-    {
+    // public function create_user()
+    // {
 
-        $user = user::where('role', '!=', 'customer')->get();
-        return view('backend.layouts.user', compact('user'));
-    }
+    //     $user = user::where('role', '!=', 'customer')->get();
+    //     return view('backend.layouts.user', compact('user'));
+    // }
 }
