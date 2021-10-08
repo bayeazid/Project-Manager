@@ -21,10 +21,15 @@
         </div>
 
         <div class="mb-1">
-            <label for="" class="form-label">Project Description</label>
-            <input name="project_description" type="text" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp">
+            <label for="">Project Description</label>
+            <textarea name="project_description" type="text" class="form-control" id="" rows="3"></textarea>
         </div>
+
+{{--        <div class="mb-1">--}}
+{{--            <label for="" class="form-label">Project Description</label>--}}
+{{--            <input name="project_description" type="text" class="form-control" id="exampleInputEmail1"--}}
+{{--                aria-describedby="emailHelp">--}}
+{{--        </div>--}}
 
         <div class="mb-1">
             <label for="" class="form-label">Project Status</label>

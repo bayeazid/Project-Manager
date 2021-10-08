@@ -7,6 +7,7 @@ use App\Models\AddTasks;
 use App\Models\TaskName;
 use App\Models\create_project;
 use App\Models\create_user;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminTasksController extends Controller
@@ -43,8 +44,8 @@ class AdminTasksController extends Controller
         $show_taskname = TaskName::all();
         $view_projects = create_project::all();
         // $view_projects = create_project::where project_name = ;
-        $view_user = create_user::all();
-        // dd($view_tasks->all());
+        $view_user =User::where('role','user')->get();
+//         dd($view_tasks->all());
         // dd($show_taskname->all());
         //dd($view_projects);
         return view('backend.admin_pages.new_tasks', compact('view_tasks', 'show_taskname', 'view_projects', 'view_user'));

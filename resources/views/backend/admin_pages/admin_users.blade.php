@@ -29,7 +29,6 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
@@ -44,7 +43,6 @@
             @foreach ($view_user as $user_list)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $user_list->id }}</td>
                     <td>{{ $user_list->name }}</td>
                     <td>{{ $user_list->email }}</td>
                     <td>{{ $user_list->phone }}</td>

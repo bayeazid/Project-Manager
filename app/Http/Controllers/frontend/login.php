@@ -17,21 +17,21 @@ class login extends Controller
     public function loginPost(Request $request)
     {
         $credentials = $request->except('_token');
-        // dd($credentials);
+//         dd($credentials);
         if (Auth::attempt($credentials)) {
 
 
-            if(auth()->user()->role=='admin'){
-                return redirect()->route('home');
+            if(auth()->user()->role=='Admin'){
+                return redirect()->route('admin_home');
             }
-            // $request->session()->regenerate();
-
-            // return redirect()->intended('home');           
+            elseif(auth()->user()->role=='user'){
+                return redirect()->route('user_tasks');
+            }
 
         }
         return redirect()->back()->with('message', 'invalid user info.');
 
-       
+
     }
 
     public function logout()

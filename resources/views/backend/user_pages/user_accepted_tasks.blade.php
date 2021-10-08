@@ -26,7 +26,7 @@
             <td>{{$task->created_at}}</td>
             <td>{{$task->updated_at}}</td>
             <td>
-                <a href="{{route('user_tasks_accepted',$task->id)}}"><i class="material-icons">edit</i></a>
+                <a href="{{route('user_completed_task',$task->id)}}"><i class="material-icons">edit</i></a>
             </td>
         </tr>
     @endforeach

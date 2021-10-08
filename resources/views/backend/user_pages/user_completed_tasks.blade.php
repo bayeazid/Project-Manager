@@ -13,7 +13,6 @@
         <th scope="col">Task Status</th>
         <th scope="col">Created at</th>
         <th scope="col">updated_at</th>
-        <th scope="col">Edit</th>
     </tr>
     </thead>
     <tbody>
@@ -25,9 +24,7 @@
             <td>{{$task->task_status}}</td>
             <td>{{$task->created_at}}</td>
             <td>{{$task->updated_at}}</td>
-            <td>
-                <a href="{{route('user_tasks_accepted',$task->id)}}"><i class="material-icons">edit</i></a>
-            </td>
+
         </tr>
     @endforeach
     </tbody>
